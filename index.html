@@ -24,6 +24,11 @@
     .card { background:#1a1a1a; padding:25px; border-radius:12px; margin-bottom:30px; box-shadow:0 10px 30px rgba(0,0,0,0.6); }
     .deposit { color:#ffcc00; font-weight:bold; margin-top:15px; }
     footer { text-align:center; padding:20px; background:#000; color:#777; font-size:0.9rem; }
+    .contact-button { 
+      background:#ffd700; color:#000; padding:15px 30px; border-radius:10px; text-decoration:none; font-weight:bold; display:inline-block; margin-top:15px; 
+    }
+    input, textarea { padding:10px; margin:5px; border-radius:5px; width:250px; }
+    input[type="submit"] { background:#ffd700; color:#000; padding:10px 20px; border-radius:8px; font-weight:bold; cursor:pointer; width:auto; }
   </style>
 </head>
 <body>
@@ -63,10 +68,22 @@
 <section style="text-align:center; padding:40px 20px;">
   <h2 style="color:#ffd700;">Contactez-nous</h2>
   <p>Pour réserver ou poser vos questions, cliquez sur le bouton ci-dessous pour nous envoyer un email :</p>
-  <a href="mailto:Glowshinecar@gmail.com" 
-     style="background:#ffd700; color:#000; padding:15px 30px; border-radius:10px; text-decoration:none; font-weight:bold; display:inline-block; margin-top:15px;">
+  <a href="mailto:Glowshinecar@gmail.com" class="contact-button">
      Envoyer un email
   </a>
+</section>
+
+<!-- SECTION PRISE DE RENDEZ-VOUS -->
+<section style="text-align:center; padding:40px 20px;">
+  <h2 style="color:#ffd700;">Prendre rendez-vous</h2>
+  <p>Remplissez vos informations ci-dessous et nous vous contacterons pour confirmer votre rendez-vous :</p>
+  <form action="mailto:Glowshinecar@gmail.com" method="post" enctype="text/plain">
+    <input type="text" name="Nom" placeholder="Votre nom" required><br>
+    <input type="tel" name="Telephone" placeholder="Votre numéro de téléphone" required><br>
+    <input type="email" name="Email" placeholder="Votre email (optionnel)"><br>
+    <textarea name="Message" placeholder="Message / Commentaire"></textarea><br>
+    <input type="submit" value="Envoyer">
+  </form>
 </section>
 
 <footer>
@@ -102,6 +119,8 @@
     .contact-button { 
       background:#ffd700; color:#000; padding:15px 30px; border-radius:10px; text-decoration:none; font-weight:bold; display:inline-block; margin-top:15px; 
     }
+    input, textarea { padding:10px; margin:5px; border-radius:5px; width:250px; }
+    input[type="submit"] { background:#ffd700; color:#000; padding:10px 20px; border-radius:8px; font-weight:bold; cursor:pointer; width:auto; }
   </style>
 </head>
 <body>
@@ -164,6 +183,19 @@
     </a>
   </section>
 
+  <!-- SECTION PRISE DE RENDEZ-VOUS -->
+  <section style="text-align:center; padding:40px 20px;">
+    <h2 style="color:#ffd700;">Prendre rendez-vous</h2>
+    <p>Remplissez vos informations ci-dessous et nous vous contacterons pour confirmer votre rendez-vous :</p>
+    <form action="mailto:Glowshinecar@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="Nom" placeholder="Votre nom" required><br>
+      <input type="tel" name="Telephone" placeholder="Votre numéro de téléphone" required><br>
+      <input type="email" name="Email" placeholder="Votre email (optionnel)"><br>
+      <textarea name="Message" placeholder="Message / Commentaire"></textarea><br>
+      <input type="submit" value="Envoyer">
+    </form>
+  </section>
+
 </section>
 
 <footer>
@@ -172,15 +204,3 @@
 
 </body>
 </html>
-<!-- SECTION PRISE DE RENDEZ-VOUS -->
-<section style="text-align:center; padding:40px 20px;">
-  <h2 style="color:#ffd700;">Prendre rendez-vous</h2>
-  <p>Remplissez vos informations ci-dessous et nous vous contacterons pour confirmer votre rendez-vous :</p>
-  <form action="mailto:Glowshinecar@gmail.com" method="post" enctype="text/plain">
-    <input type="text" name="Nom" placeholder="Votre nom" required style="padding:10px; margin:5px; border-radius:5px; width:250px;"><br>
-    <input type="tel" name="Telephone" placeholder="Votre numéro de téléphone" required style="padding:10px; margin:5px; border-radius:5px; width:250px;"><br>
-    <input type="email" name="Email" placeholder="Votre email (optionnel)" style="padding:10px; margin:5px; border-radius:5px; width:250px;"><br>
-    <textarea name="Message" placeholder="Message / Commentaire" style="padding:10px; margin:5px; border-radius:5px; width:250px; height:100px;"></textarea><br>
-    <input type="submit" value="Envoyer" style="background:#ffd700; color:#000; padding:10px 20px; border-radius:8px; font-weight:bold; cursor:pointer;">
-  </form>
-</section>
