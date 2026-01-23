@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion - GlowShine Car</title>
+    <style>
+        body { background: #0e0e0e; color: white; font-family: Arial, sans-serif; padding: 20px; }
+        .container { max-width: 900px; margin: auto; }
+        h1 { color: #ffd700; text-align: center; border-bottom: 2px solid #ffd700; padding-bottom: 10px; }
+        
+        .section-title { color: #ffd700; margin-top: 40px; display: flex; justify-content: space-between; align-items: center; }
+        
+        /* Style du Tableau Horaire */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #1a1a1a; border-radius: 10px; overflow: hidden; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #333; }
+        th { background: #ffd700; color: black; text-transform: uppercase; font-size: 0.8rem; }
+        tr:hover { background: #222; }
+        
+        .status-badge { padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+        .confirmed { background: #28a745; color: white; }
+        .pending { background: #ffc107; color: black; }
+
+        .btn-action { background: #ffd700; color: black; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; text-decoration: none; font-size: 0.9rem; }
+        .btn-logout { background: transparent; border: 1px solid #ff4444; color: #ff4444; padding: 5px 10px; border-radius: 5px; text-decoration: none; float: right; }
+        
+        @media print { .btn-action, .btn-logout, .back-site { display: none; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="btn-logout">Déconnexion</a>
+    <h1>Tableau de Bord Gestion</h1>
+
+    <div class="section-title">
+        <h2>📅 Horaire des Rendez-vous</h2>
+        <button class="btn-action" onclick="window.print()">🖨️ Imprimer / PDF</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Jour</th>
+                <th>Heure</th>
+                <th>Client</th>
+                <th>Véhicule</th>
+                <th>Service</th>
+                <th>Statut (Dépôt)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lundi</td>
+                <td>09:00</td>
+                <td>Jean Tremblay</td>
+                <td>Civic (Sedan)</td>
+                <td>Combo Premium</td>
+                <td><span class="status-badge confirmed">Payé (30%)</span></td>
+            </tr>
+            <tr>
+                <td>Lundi</td>
+                <td>14:00</td>
+                <td>Marc Dubuc</td>
+                <td>F-150 (Truck)</td>
+                <td>Vitres Teintées</td>
+                <td><span class="status-badge pending">En attente</span></td>
+            </tr>
+            <tr>
+                <td>Mardi</td>
+                <td>10:30</td>
+                <td>Sophie L.</td>
+                <td>RAV4 (SUV)</td>
+                <td>Lavage + Détail</td>
+                <td><span class="status-badge confirmed">Payé (30%)</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="section-title">
+        <h2>🛠️ Outils de travail</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+        <div style="background: #1a1a1a; padding: 20px; border-radius: 10px; border-left: 4px solid #ffd700;">
+            <h3>Checklist Rapide</h3>
+            <ul style="list-style: none; padding: 0; color: #ccc; line-height: 1.8;">
+                <li>✅ Aspirateur complet</li>
+                <li>✅ Nettoyage des plastiques</li>
+                <li>✅ Vitres intérieures/extérieures</li>
+                <li>✅ Brillance pneus (Armor All)</li>
+            </ul>
+        </div>
+        <div style="background: #1a1a1a; padding: 20px; border-radius: 10px; border-left: 4px solid #ffd700;">
+            <h3>Liens Utiles</h3>
+            <a href="https://formspree.io/forms" target="_blank" style="color: #ffd700; display: block; margin-bottom: 10px;">📩 Voir les messages Formspree</a>
+            <a href="index.html" style="color: #ffd700; display: block;">🏠 Retour au site public</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
