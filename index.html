@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlowShine Car | Accueil</title>
     <style>
-        body { margin:0; font-family:Arial, sans-serif; background:#0e0e0e; color:#f5f5f5; overflow-x: hidden; }
+        body { margin:0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#0e0e0e; color:#f5f5f5; overflow-x: hidden; }
         
-        /* --- MENU HAMBURGER --- */
+        /* --- MENU --- */
         .menu-icon {
             position: fixed; top: 20px; right: 20px; z-index: 1000;
             cursor: pointer; background: #1a1a1a; padding: 10px; border-radius: 5px; border: 1px solid #ffd700;
@@ -31,34 +31,44 @@
             background: rgba(26,26,26,0.9); border: 1px solid #ffd700; color: #ffd700;
             padding: 8px 12px; border-radius: 5px; cursor: pointer; font-weight: bold;
             display: flex; align-items: center; gap: 8px; font-size: 0.8rem;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
         }
 
         /* --- HEADER --- */
-        header { width:100%; height:300px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=2000'); background-size:cover; background-position:center; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; color:#ffd700; }
-        header h1 { font-size:3rem; margin-bottom:10px; text-transform: uppercase; }
+        header { width:100%; height:350px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=2000'); background-size:cover; background-position:center; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; color:#ffd700; border-bottom: 2px solid #ffd700; }
+        header h1 { font-size:3.5rem; margin-bottom:10px; text-transform: uppercase; letter-spacing: 2px; }
         
-        section { max-width:1000px; margin:auto; padding:40px 20px; }
-        h2 { color:#ffd700; text-align:center; margin-bottom:30px; }
+        section { max-width:1100px; margin:auto; padding:40px 20px; }
+        h2 { color:#ffd700; text-align:center; margin-bottom:40px; font-size: 2rem; }
         
-        .service-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; }
+        .service-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; }
         .service-card { text-decoration: none; color: inherit; display: block; }
-        .service-box { background:#1a1a1a; padding:30px; border-radius:15px; border: 1px solid #333; text-align:center; transition: 0.3s; height: 100%; }
-        .service-box:hover { border-color: #ffd700; transform: translateY(-5px); }
-        
-        /* --- EFFET COMBO PREMIUM --- */
-        .combo-gold {
-            font-weight: bold; font-size: 1.1rem;
-            background: linear-gradient(90deg, #ffd700, #fff, #ffd700);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: goldShine 3s linear infinite;
-            display: inline-block; margin: 8px 0;
-        }
-        @keyframes goldShine { 0% { background-position: -200%; } 100% { background-position: 200%; } }
+        .service-box { background:#1a1a1a; padding:35px; border-radius:15px; border: 1px solid #333; text-align:center; transition: 0.4s; height: 100%; box-sizing: border-box; }
+        .service-box:hover { border-color: #ffd700; transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .service-box h3 { color:#ffd700; font-size: 1.8rem; margin-bottom: 15px; }
+        .price { font-size:1.2rem; margin:10px 0; color:#ddd; }
+        .btn-select { margin-top:25px; display:inline-block; padding:12px 25px; border: 1px solid #ffd700; color:#ffd700; border-radius:5px; font-weight:bold; text-transform: uppercase; }
 
-        .btn-select { margin-top:20px; display:inline-block; padding:10px 20px; border: 1px solid #ffd700; color:#ffd700; border-radius:5px; font-weight:bold; }
-        .floating-contact { position: fixed; bottom: 20px; right: 20px; background: #ffd700; color: black; padding: 15px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 99; }
+        /* --- ANIMATION COMBO --- */
+        @keyframes goldShine { 0% { background-position: -200%; } 100% { background-position: 200%; } }
+        @keyframes goldPulse { 0% { transform: scale(1); filter: drop-shadow(0 0 2px #ffd700); } 100% { transform: scale(1.03); filter: drop-shadow(0 0 8px #ffd700); } }
+        .combo-gold {
+            font-weight: 900; font-size: 1.2rem;
+            background: linear-gradient(90deg, #ffd700, #fff, #ffd700);
+            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: goldShine 3s linear infinite, goldPulse 1.5s ease-in-out infinite alternate;
+            display: inline-block; margin: 10px 0; text-transform: uppercase;
+        }
+
+        /* --- ZONE RABAIS --- */
+        .discount-section { background: #111; padding: 40px; border-radius: 20px; border: 2px dashed #ffd700; margin-top: 50px; text-align: center; }
+        .discount-form { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+        .discount-form input { padding: 12px 20px; border-radius: 5px; border: 1px solid #333; background: #000; color: white; width: 250px; outline: none; }
+        .btn-submit { background: #ffd700; color: black; border: none; padding: 12px 30px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
+
+        .approach { background:#161616; padding:35px; border-radius:15px; margin-top:50px; border-left: 6px solid #ffd700; }
+        .approach h3 { color:#ffd700; margin-top:0; font-size: 1.5rem; }
+        .floating-contact { position: fixed; bottom: 25px; right: 25px; background: #ffd700; color: black; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 99; box-shadow: 0 5px 15px rgba(255,215,0,0.4); }
     </style>
 </head>
 <body>
@@ -79,49 +89,67 @@
     <span class="close-btn" onclick="toggleMenu()">×</span>
     <h3>👤 ESPACE CLIENT</h3>
     <a href="index.html">Accueil</a>
-    <a href="contact.html">Prendre RDV</a>
+    <a href="contact.html">Prendre Rendez-vous</a>
+    <a href="#services">Nos Services</a>
     
     <h3>🛠️ ÉQUIPE GLOWSHINE</h3>
-    <a href="travaux.html">🛠️ Accès Staff</a>
+    <a href="travaux.html" style="color: #ffd700; font-weight: bold;">🛠️ Accès Staff</a>
     <a href="login.html">Connexion Admin</a>
 </div>
 
 <header>
     <h1>GlowShine Car</h1>
-    <p>L'excellence du detailing à votre porte</p>
+    <p>Le detailing de luxe qui se déplace chez vous</p>
 </header>
 
-<section>
-    <h2>Nos Catégories</h2>
+<section id="services">
+    <h2>Choisissez votre catégorie</h2>
     <div class="service-grid">
         <a href="choix-sedan.html" class="service-card">
             <div class="service-box">
-                <h3>Sedan</h3>
-                <p>Lavage + Détail - 200$</p>
-                <div class="combo-gold">⭐ Combo Premium - 450$</div>
+                <h3>SEDAN</h3>
+                <p class="price">Lavage + Détail Intérieur - 200$</p>
+                <p class="price">Teintage de vitres - 250$</p>
+                <div class="combo-gold">⭐ COMBO PREMIUM - 450$</div>
                 <br><div class="btn-select">Sélectionner</div>
             </div>
         </a>
         <a href="choix-suv.html" class="service-card">
             <div class="service-box">
-                <h3>SUV</h3>
-                <p>Lavage + Détail - 250$</p>
-                <div class="combo-gold">⭐ Combo Premium - 550$</div>
+                <h3>SUV / CROSSOVER</h3>
+                <p class="price">Lavage + Détail Intérieur - 250$</p>
+                <p class="price">Teintage de vitres - 300$</p>
+                <div class="combo-gold">⭐ COMBO PREMIUM - 550$</div>
                 <br><div class="btn-select">Sélectionner</div>
             </div>
         </a>
         <a href="choix-truck.html" class="service-card">
             <div class="service-box">
-                <h3>Truck</h3>
-                <p>Lavage + Détail - 300$</p>
-                <div class="combo-gold">⭐ Combo Premium - 700$</div>
+                <h3>TRUCK / VAN</h3>
+                <p class="price">Lavage + Détail Intérieur - 300$</p>
+                <p class="price">Teintage de vitres - 400$</p>
+                <div class="combo-gold">⭐ COMBO PREMIUM - 700$</div>
                 <br><div class="btn-select">Sélectionner</div>
             </div>
         </a>
     </div>
+
+    <div class="discount-section">
+        <h3>🎁 OFFRES EXCLUSIVES</h3>
+        <p>Inscrivez votre courriel pour recevoir des <b>codes promo Black & Yellow</b> !</p>
+        <form action="#" class="discount-form">
+            <input type="email" placeholder="Votre adresse courriel" required>
+            <button type="submit" class="btn-submit">S'inscrire</button>
+        </form>
+    </div>
+
+    <div class="approach">
+        <h3>Note de Réservation</h3>
+        <p>Pour confirmer votre rendez-vous chez <strong>GlowShine Car</strong>, un dépôt de <strong>30%</strong> est obligatoire via Virement Interac.</p>
+    </div>
 </section>
 
-<a href="contact.html" class="floating-contact">💬 Nous contacter</a>
+<a href="contact.html" class="floating-contact">💬 CONTACTER UN EXPERT</a>
 
 <script>
     function toggleMenu() { document.getElementById("sideMenu").classList.toggle("active"); }
@@ -133,7 +161,7 @@
                 audio.volume = 0.4;
                 document.getElementById("musicText").innerText = "MUSIQUE : ON";
                 document.getElementById("musicIcon").innerText = "🔊";
-            }).catch(e => console.log("Attente clic..."));
+            }).catch(e => console.log("Interaction requise"));
         } else {
             audio.pause();
             document.getElementById("musicText").innerText = "MUSIQUE : OFF";
