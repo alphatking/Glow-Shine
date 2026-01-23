@@ -44,6 +44,27 @@
         .approach { background:#111; padding:30px; border-radius:15px; margin-top:40px; border-left: 5px solid #ffd700; }
         .approach h3 { color:#ffd700; margin-top:0; }
         .floating-contact { position: fixed; bottom: 20px; right: 20px; background: #ffd700; color: black; padding: 15px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 15px rgba(255,215,0,0.3); z-index: 99; font-size: 0.9rem; }
+
+        /* --- AJOUT : EFFET OR QUI BOUGE --- */
+        @keyframes goldShine {
+            0% { background-position: -200%; }
+            100% { background-position: 200%; }
+        }
+        @keyframes goldPulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 2px #ffd700); }
+            100% { transform: scale(1.03); filter: drop-shadow(0 0 10px #ffd700); }
+        }
+        .combo-gold {
+            font-weight: bold;
+            font-size: 1.1rem;
+            background: linear-gradient(90deg, #ffd700, #fff, #ffd700);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: goldShine 3s linear infinite, goldPulse 1.5s ease-in-out infinite alternate;
+            display: inline-block;
+            margin: 8px 0;
+        }
     </style>
 </head>
 <body>
@@ -80,7 +101,7 @@
                 <h3>Sedan</h3>
                 <p class="price">Lavage + Détail - 200$</p>
                 <p class="price">Vitres Teintées - 250$</p>
-                <p class="price" style="color:white; font-weight:bold;">Combo Premium - 450$</p>
+                <div class="combo-gold">⭐ Combo Premium - 450$</div>
                 <div class="btn-select">Voir les options</div>
             </div>
         </a>
@@ -89,7 +110,7 @@
                 <h3>SUV / Crossover</h3>
                 <p class="price">Lavage + Détail - 250$</p>
                 <p class="price">Vitres Teintées - 300$</p>
-                <p class="price" style="color:white; font-weight:bold;">Combo Premium - 550$</p>
+                <div class="combo-gold">⭐ Combo Premium - 550$</div>
                 <div class="btn-select">Voir les options</div>
             </div>
         </a>
@@ -98,7 +119,7 @@
                 <h3>Truck / Van</h3>
                 <p class="price">Lavage + Détail - 300$</p>
                 <p class="price">Vitres Teintées - 400$</p>
-                <p class="price" style="color:white; font-weight:bold;">Combo Premium - 700$</p>
+                <div class="combo-gold">⭐ Combo Premium - 700$</div>
                 <div class="btn-select">Voir les options</div>
             </div>
         </a>
