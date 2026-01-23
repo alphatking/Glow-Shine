@@ -3,116 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowShine | Sélection Sedan</title>
+    <title>Options Sedan - GlowShine Car</title>
     <style>
-        body { 
-            margin:0; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background:#0e0e0e; 
-            color:white; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container { 
-            max-width: 500px; 
-            width: 100%;
-            border: 2px solid #ffd700; 
-            padding: 40px; 
-            border-radius: 20px; 
-            background: #1a1a1a; 
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-        }
-
-        h1 { color: #ffd700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
-        
-        .price-tag { 
-            font-size: 3rem; 
-            color: #ffd700; 
-            font-weight: 900; 
-            margin: 20px 0;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-        }
-
-        .details { 
-            text-align: left; 
-            margin: 30px 0; 
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            line-height: 1.8; 
-        }
-
-        .details b { color: #ffd700; }
-
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            margin-top: 10px;
-            margin-bottom: 20px;
-            background: #000;
-            border: 1px solid #333;
-            border-radius: 5px;
-            color: white;
-            box-sizing: border-box;
-        }
-
-        input:focus { border-color: #ffd700; outline: none; }
-
-        .btn-confirm { 
-            display: block; 
-            width: 100%; 
-            padding: 18px; 
-            background: #ffd700; 
-            color: black; 
-            text-decoration: none; 
-            font-weight: bold; 
-            border-radius: 8px; 
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        .btn-confirm:hover { background: #fff; transform: scale(1.02); }
-
-        .btn-back { 
-            display: inline-block; 
-            margin-top: 25px; 
-            color: #888; 
-            text-decoration: none; 
-            font-size: 0.9rem; 
-            transition: 0.3s;
-        }
-        
-        .btn-back:hover { color: #ffd700; }
+        body { background: #0e0e0e; color: white; font-family: sans-serif; padding: 20px; text-align: center; }
+        .container { max-width: 500px; margin: auto; }
+        h1 { color: #ffd700; margin-bottom: 30px; }
+        .option-card { background: #1a1a1a; border: 1px solid #333; padding: 20px; border-radius: 15px; margin-bottom: 15px; cursor: pointer; transition: 0.3s; }
+        .option-card:hover { border-color: #ffd700; transform: translateY(-5px); }
+        .option-card h3 { margin: 0; color: #ffd700; }
+        .price { font-size: 1.2rem; font-weight: bold; margin: 10px 0; }
+        .depot-text { font-size: 0.9rem; color: #aaa; }
+        .btn-back { display: inline-block; margin-top: 20px; color: #888; text-decoration: none; }
+        #payment-modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #222; padding: 30px; border-radius: 20px; border: 2px solid #ffd700; width: 90%; max-width: 400px; box-shadow: 0 0 50px rgba(0,0,0,0.8); z-index: 100; }
+        /* Bouton Contact Flottant */
+        .floating-contact { position: fixed; bottom: 20px; right: 20px; background: #ffd700; color: black; padding: 15px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 15px rgba(255,215,0,0.3); z-index: 99; }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <h1>FORMAT SEDAN</h1>
-        <p style="color: #888;">Forfait Premium Tout-Inclus</p>
-        
-        <div class="price-tag">400$</div>
-
-        <div class="details">
-            <p>✨ <b>Lavage Extérieur :</b> Décontamination & Cire</p>
-            <p>🧼 <b>Détail Intérieur :</b> Shampoing & Protection</p>
-            <p>🕶️ <b>Teintage :</b> Vitres arrières incluses</p>
-        </div>
-
-        <form>
-            <label>Modèle et année du véhicule :</label>
-            <input type="text" placeholder="Ex: Honda Civic 2022" required>
-            
-            <a href="contact.html" class="btn-confirm">Confirmer & Prendre RDV</a>
-        </form>
-
-        <a href="index.html" class="btn-back">← Retourner aux choix</a>
+<div class="container">
+    <a href="index.html" class="btn-back">← Retour</a>
+    <h1>Options pour Sedan</h1>
+    <div class="option-card" onclick="showPayment('Lavage + Détail', '200$', '60$')">
+        <h3>Lavage + Détail</h3>
+        <p class="price">200$</p>
+        <p class="depot-text">Dépôt requis (30%) : 60$</p>
     </div>
+    <div class="option-card" onclick="showPayment('Vitres Teintées', '250$', '75$')">
+        <h3>Vitres Teintées</h3>
+        <p class="price">250$</p>
+        <p class="depot-text">Dépôt requis (30%) : 75$</p>
+    </div>
+    <div class="option-card" onclick="showPayment('Combo Premium', '400$', '120$')">
+        <h3>Combo Premium</h3>
+        <p class="price">400$</p>
+        <p class="depot-text">Dépôt requis (30%) : 120$</p>
+    </div>
+</div>
 
+<div id="payment-modal">
+    <h2 id="modal-title" style="color:#ffd700"></h2>
+    <p>Prix total : <span id="modal-total"></span></p>
+    <hr>
+    <p>Envoyez votre dépôt de :</p>
+    <h2 id="modal-depot" style="background:#ffd700; color:black; display:inline-block; padding:10px; border-radius:10px;"></h2>
+    <div style="margin-top:20px; text-align:left; background:#111; padding:15px; border-radius:10px; font-size:0.9rem;">
+        <p><strong>Virement Interac :</strong> Glowshinecar@gmail.com</p>
+        <p><strong>Question :</strong> Voiture</p>
+        <p><strong>Réponse :</strong> GlowShine</p>
+    </div>
+    <button onclick="closeModal()" style="margin-top:20px; background:none; border:1px solid #888; color:white; padding:10px; cursor:pointer; border-radius:5px;">Fermer</button>
+</div>
+
+<a href="contact.html" class="floating-contact">💬 Nous contacter</a>
+
+<script>
+    function showPayment(title, total, depot) {
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-total').innerText = total;
+        document.getElementById('modal-depot').innerText = depot;
+        document.getElementById('payment-modal').style.display = 'block';
+    }
+    function closeModal() { document.getElementById('payment-modal').style.display = 'none'; }
+</script>
 </body>
 </html>
