@@ -3,49 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowShine | Tableau de Bord Admin</title>
+    <title>GlowShine | Tableau de bord Admin</title>
     <style>
         body { margin:0; font-family: 'Segoe UI', sans-serif; background:#0e0e0e; color:#f5f5f5; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
-        
         h2 { color: #ffd700; text-align: center; text-transform: uppercase; letter-spacing: 2px; margin-top: 60px; margin-bottom: 40px; }
+        .staff-grid { display: flex; flex-direction: column; gap: 15px; width: 90%; max-width: 350px; }
         
-        .staff-grid { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 15px; 
-            width: 90%;
-            max-width: 350px; 
-        }
-
+        /* Boutons identiques à ta capture d'écran */
         .staff-btn { 
-            background: #1a1a1a; 
-            color: white; 
-            padding: 20px; 
-            text-align: center; 
-            text-decoration: none; 
-            border-radius: 12px; 
-            border: 1px solid #333; 
-            font-weight: bold; 
-            font-size: 1rem;
-            transition: 0.3s;
+            background: #1a1a1a; color: white; padding: 20px; text-align: center; 
+            text-decoration: none; border-radius: 12px; border: 1px solid #333; 
+            font-weight: bold; font-size: 1rem; transition: 0.3s; cursor: pointer;
         }
-        
         .staff-btn:hover { border-color: #ffd700; background: #222; }
 
-        /* Bouton Spécial BOSS (Pointillés dorés comme sur ta photo) */
-        .boss-btn { 
-            border: 2px dashed #ffd700; 
-            color: #ffd700; 
-            margin-top: 20px;
-            background: transparent;
-        }
-        
-        .logout-link {
-            margin-top: 50px;
-            color: #777;
-            text-decoration: none;
-            font-size: 0.8rem;
-        }
+        .boss-btn { border: 2px dashed #ffd700; color: #ffd700; margin-top: 20px; background: transparent; }
+        .logout-link { margin-top: 50px; color: #777; text-decoration: none; font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -53,11 +26,11 @@
     <h2>TABLEAU DE BORD ADMIN</h2>
 
     <div class="staff-grid">
-        <a href="https://docs.google.com/document/d/1nYAKwhjy5SqWVmdwvcM5TCiSl4vHB6CVMCFKwM5t21s/edit?usp=sharing" target="_blank" class="staff-btn">SK</a>
+        <a href="https://docs.google.com/document/d/1nYAKwhjy5SqWVmdwvcM5TCiSl4vHB6CVMCFKwM5t21s/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="staff-btn">SK</a>
 
-        <a href="https://docs.google.com/document/d/1cvQN24bctnL6mACYS_Zd8Oyl1cKpv-o7uGsQ-30tiqQ/edit?usp=sharing" target="_blank" class="staff-btn">EVANS</a>
+        <a href="https://docs.google.com/document/d/1cvQN24bctnL6mACYS_Zd8Oyl1cKpv-o7uGsQ-30tiqQ/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="staff-btn">EVANS</a>
         
-        <a href="https://docs.google.com/document/d/1STv5qyWu6yMLfimx4IzKqSZFGZE8l4tTDy-BsS0-QA0/edit?usp=sharing" target="_blank" class="staff-btn">DP (HORAIRE DOCS)</a>
+        <a href="https://docs.google.com/document/d/1STv5qyWu6yMLfimx4IzKqSZFGZE8l4tTDy-BsS0-QA0/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="staff-btn">DP (HORAIRE DOCS)</a>
 
         <a href="admin-panel.html" class="staff-btn boss-btn">GESTION GLOBALE (BOSS)</a>
     </div>
