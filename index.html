@@ -3,69 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowShine | Gestion Staff</title>
+    <title>GlowShine Car | Esthétique Automobile Mobile</title>
     <style>
-        body { margin:0; font-family: 'Segoe UI', sans-serif; background:#0e0e0e; color:#f5f5f5; padding: 20px; }
-        h2 { color: #ffd700; text-align: center; text-transform: uppercase; letter-spacing: 2px; margin-top: 40px; margin-bottom: 40px; }
-        
-        .staff-grid { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 15px; 
-            max-width: 350px; 
-            margin: auto; 
+        :root {
+            --gold: #ffd700;
+            --dark: #0e0e0e;
+            --gray: #1a1a1a;
         }
 
-        .staff-btn { 
-            background: #1a1a1a; 
-            color: white; 
-            padding: 25px; 
-            text-align: center; 
-            text-decoration: none; 
-            border-radius: 12px; 
-            border: 1px solid #333; 
-            font-weight: bold; 
-            font-size: 1.1rem;
-            transition: 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--dark);
+            color: white;
+            line-height: 1.6;
         }
-        
-        .staff-btn:hover { border-color: #ffd700; background: #222; transform: translateY(-2px); }
 
-        /* Bouton Spécial pour Toi (Boss) */
-        .boss-btn { 
-            border: 2px dashed #ffd700; 
-            color: #ffd700; 
-            margin-top: 30px; 
-            background: rgba(255, 215, 0, 0.05);
+        /* Barre de Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(0,0,0,0.9);
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        
-        .logout-btn {
-            display: block;
-            text-align: center;
-            margin-top: 50px;
-            color: #777;
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links a {
+            color: white;
             text-decoration: none;
-            font-size: 0.9rem;
+            margin-left: 20px;
+            font-weight: 500;
             transition: 0.3s;
         }
-        .logout-btn:hover { color: #ff4444; }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        .staff-link {
+            border: 1px solid var(--gold);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1601362840469-51e4d8d59085?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; }
+        .hero p { font-size: 1.2rem; color: var(--gold); font-style: italic; }
+
+        /* Section Approche */
+        .approche {
+            padding: 60px 10%;
+            text-align: center;
+            background: var(--gray);
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .approche h2 { color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
+        .approche p { max-width: 800px; margin: 0 auto; font-size: 1.1rem; }
+
+        /* Grille des Services */
+        .services {
+            padding: 60px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--gray);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: 0.4s;
+        }
+
+        .service-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+        }
+
+        .service-card h3 { color: var(--gold); font-size: 1.5rem; margin-bottom: 15px; }
+        .service-card .price { font-size: 2rem; font-weight: bold; margin: 15px 0; }
+
+        /* Footer */
+        footer {
+            padding: 40px;
+            text-align: center;
+            background: black;
+            border-top: 1px solid #222;
+            font-size: 0.9rem;
+            color: #666;
+        }
     </style>
 </head>
 <body>
 
-    <h2>Tableau de Bord Admin</h2>
+    <nav>
+        <div class="logo">GLOWSHINE CAR</div>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="#services">Services</a>
+            <a href="login.html" class="staff-link">🛠️ Accès Staff</a>
+        </div>
+    </nav>
 
-    <div class="staff-grid">
-        <a href="sk-planning.html" class="staff-btn">SK</a>
-        <a href="evans-planning.html" class="staff-btn">EVANS</a>
-        
-        <a href="https://docs.google.com/document/d/1STv5qyWu6yMLfimx4IzKqSZFGZE8l4tTDy-BsS0-QA0/edit?usp=sharing" target="_blank" class="staff-btn">DP (HORAIRE DOCS)</a>
-        
-        <a href="admin-panel.html" class="staff-btn boss-btn">GESTION GLOBALE (BOSS)</a>
-    </div>
+    <section class="hero">
+        <h1>GLOWSHINE CAR</h1>
+        <p>L'esthétique automobile à votre porte</p>
+    </section>
 
-    <a href="index.html" class="logout-btn">← Se déconnecter</a>
+    <section class="approche">
+        <h2>Notre Approche</h2>
+        <p>✨ <strong>Glow&Shine | L’éclat du succès</strong> 🚀</p>
+        <p>Chez GlowShine Car, on ne se contente pas de laver des voitures, on redonne de la puissance à votre image. Pour nous, chaque véhicule qui sort de nos mains est une preuve de notre rigueur et de notre passion.</p>
+    </section>
+
+    <section id="services" class="services">
+        <div class="service-card">
+            <h3>SEDAN / COMPACT</h3>
+            <p>Lavage complet intérieur & extérieur</p>
+            <div class="price">100$</div>
+            <p>Durée : Env. 1h30</p>
+        </div>
+
+        <div class="service-card">
+            <h3>SUV / CROSSOVER</h3>
+            <p>Lavage complet intérieur & extérieur</p>
+            <div class="price">130$</div>
+            <p>Durée : Env. 2h00</p>
+        </div>
+
+        <div class="service-card">
+            <h3>TRUCK / 7 PLACES</h3>
+            <p>Lavage complet intérieur & extérieur</p>
+            <div class="price">160$</div>
+            <p>Durée : Env. 2h30</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 GlowShine Car - Laval & Environs</p>
+    </footer>
 
 </body>
 </html>
