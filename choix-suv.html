@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options SUV - GlowShine Car</title>
+    <style>
+        body { background: #0e0e0e; color: white; font-family: sans-serif; padding: 20px; text-align: center; }
+        .container { max-width: 500px; margin: auto; }
+        h1 { color: #ffd700; margin-bottom: 30px; }
+        .option-card { 
+            background: #1a1a1a; border: 1px solid #333; padding: 20px; 
+            border-radius: 15px; margin-bottom: 15px; cursor: pointer; transition: 0.3s;
+        }
+        .option-card:hover { border-color: #ffd700; transform: translateY(-5px); }
+        .option-card h3 { margin: 0; color: #ffd700; }
+        .price { font-size: 1.2rem; font-weight: bold; margin: 10px 0; }
+        .depot-text { font-size: 0.9rem; color: #aaa; }
+        .btn-back { display: inline-block; margin-top: 20px; color: #888; text-decoration: none; }
+        #payment-modal { 
+            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: #222; padding: 30px; border-radius: 20px; border: 2px solid #ffd700; width: 90%; max-width: 400px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8); z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="btn-back">← Retour aux catégories</a>
+    <h1>Options pour SUV</h1>
+    <p>Choisissez votre service pour voir le dépôt :</p>
+
+    <div class="option-card" onclick="showPayment('SUV - Lavage + Détail', '250$', '62.50$')">
+        <h3>Lavage + Détail</h3>
+        <p class="price">250$</p>
+        <p class="depot-text">Dépôt requis : 62.50$</p>
+    </div>
+
+    <div class="option-card" onclick="showPayment('SUV - Vitres Teintées', '300$', '75$')">
+        <h3>Vitres Teintées</h3>
+        <p class="price">300$</p>
+        <p class="depot-text">Dépôt requis : 75$</p>
+    </div>
+
+    <div class="option-card" onclick="showPayment('SUV - Combo Premium', '550$', '137.50$')">
+        <h3>Combo Premium</h3>
+        <p class="price">550$</p>
+        <p class="depot-text">Dépôt requis : 137.50$</p>
+    </div>
+</div>
+
+<div id="payment-modal">
+    <h2 id="modal-title" style="color:#ffd700"></h2>
+    <p>Prix total : <span id="modal-total"></span></p>
+    <hr>
+    <p>Envoyez votre dépôt de :</p>
+    <h2 id="modal-depot" style="background:#ffd700; color:black; display:inline-block; padding:10px; border-radius:10px;"></h2>
+    <div style="margin-top:20px; text-align:left; background:#111; padding:15px; border-radius:10px; font-size:0.9rem;">
+        <p><strong>Virement Interac :</strong> tonemail@gmail.com</p>
+        <p><strong>Question :</strong> Voiture</p>
+        <p><strong>Réponse :</strong> GlowShine</p>
+    </div>
+    <button onclick="closeModal()" style="margin-top:20px; background:none; border:1px solid #888; color:white; padding:10px; cursor:pointer; border-radius:5px;">Fermer</button>
+</div>
+
+<script>
+    function showPayment(title, total, depot) {
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-total').innerText = total;
+        document.getElementById('modal-depot').innerText = depot;
+        document.getElementById('payment-modal').style.display = 'block';
+    }
+    function closeModal() {
+        document.getElementById('payment-modal').style.display = 'none';
+    }
+</script>
+</body>
+</html>
