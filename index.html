@@ -2,85 +2,131 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>GlowShine Car | Accueil</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlowShine Car | Accueil</title>
+
 <style>
-body { margin:0; font-family:Arial, Helvetica, sans-serif; background:#0e0e0e; color:#f5f5f5; overflow-x:hidden; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0e0e0e;
+  color: #f5f5f5;
+}
 
-/* CINÉMATIQUE */
-#cinematic { position: fixed; inset:0; background:black; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:9999; }
-#car { width:400px; position:absolute; left:-500px; bottom:50px; animation:carSlide 5s forwards; }
-@keyframes carSlide { 0% {left:-500px;} 100% {left:50%; transform:translateX(-50%);} }
-#company-name { font-size:4rem; color:#ffd700; text-shadow:0 0 20px #ffd700,0 0 40px #ffd700,0 0 60px #ffcc00; opacity:0; animation:fadeInText 2s forwards 1s; }
-#slogan { font-size:1.5rem; color:#ccc; margin-top:15px; opacity:0; animation:fadeInText 2s forwards 2.5s; }
-@keyframes fadeInText { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
-@keyframes fadeOutCinematic { to{opacity:0; visibility:hidden;} }
+header {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
 
-header { background: linear-gradient(135deg,#000,#1c1c1c); padding:80px 20px; text-align:center; }
-header h1 { color:#ffd700; font-size:3rem; }
-section { max-width:1100px; margin:auto; padding:60px 20px; }
-h2 { color:#ffd700; margin-bottom:20px; }
-.cards { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
-.card { background:#1a1a1a; padding:25px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.6); width:300px; line-height:1.6; color:#ccc; display:flex; flex-direction:column; justify-content:space-between; }
-.card h3 { color:#ffd700; margin-bottom:15px; }
-.price { color:#ffd700; font-weight:bold; }
-.btn { display:inline-block; margin-top:20px; padding:12px 28px; background:#ffd700; color:#000; text-decoration:none; border-radius:30px; font-weight:bold; text-align:center; }
-.depot { margin-top:30px; color:#ffd700; font-weight:bold; text-align:center; }
-footer { text-align:center; padding:25px; background:#000; color:#777; }
-@media(max-width:950px) { .cards { flex-direction:column; align-items:center; } .card { width:80%; } }
+header video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffd700;
+  text-align: center;
+}
+
+header .overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+header .overlay p {
+  font-size: 1.2rem;
+}
+
+section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+h2 {
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+
+.service-box {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  color: #ccc;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.depot {
+  margin-top: 15px;
+  color: #ffd700;
+  font-weight: bold;
+  text-align: center;
+}
 </style>
 </head>
 
 <body>
 
-<!-- CINÉMATIQUE -->
-<div id="cinematic">
-  <img id="car" src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c4" alt="Voiture" />
-  <div id="company-name">GlowShine Car</div>
-  <div id="slogan">Detailing • Vitres teintées • Finition premium</div>
-</div>
-
+<!-- CINEMATIQUE + NOM DE LA COMPAGNIE -->
 <header>
-  <h1>GlowShine Car</h1>
-  <p>Lavage auto • Intérieur & Extérieur • Vitres teintées</p>
+  <video autoplay muted loop>
+    <source src="video-voiture.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la vidéo.
+  </video>
+  <div class="overlay">
+    <h1>GlowShine Car</h1>
+    <p>Redonnez vie à votre véhicule avec nos services professionnels</p>
+  </div>
 </header>
 
 <section>
+
   <h2>Nos services</h2>
-  <div class="cards">
-    <div class="card">
+  <div class="service-grid">
+    <div class="service-box">
       <h3>Sedan</h3>
-      <p>Lavage + Détail : <span class="price">200$</span></p>
-      <p>Vitres teintées : <span class="price">250$</span></p>
-      <p>Combo Premium : <span class="price">450$</span></p>
-      <a class="btn" href="contact.html">Prendre rendez-vous</a>
+      <p>Nettoyage complet intérieur & extérieur</p>
+      <p>Prix : 100$</p>
     </div>
-    <div class="card">
+    <div class="service-box">
       <h3>SUV / Crossover</h3>
-      <p>Lavage + Détail : <span class="price">250$</span></p>
-      <p>Vitres teintées : <span class="price">300$</span></p>
-      <p>Combo Premium : <span class="price">550$</span></p>
-      <a class="btn" href="contact.html">Prendre rendez-vous</a>
+      <p>Nettoyage complet intérieur & extérieur</p>
+      <p>Prix : 150$</p>
     </div>
-    <div class="card">
-      <h3>Truck / Van</h3>
-      <p>Lavage + Détail : <span class="price">300$</span></p>
-      <p>Vitres teintées : <span class="price">400$</span></p>
-      <p>Combo Premium : <span class="price">700$</span></p>
-      <a class="btn" href="contact.html">Prendre rendez-vous</a>
+    <div class="service-box">
+      <h3>Truck / Camion</h3>
+      <p>Nettoyage complet intérieur & extérieur</p>
+      <p>Prix : 200$</p>
     </div>
   </div>
-  <p class="depot">⚠️ Dépôt obligatoire de 25% pour confirmer le rendez-vous.</p>
+
+  <p class="depot">⚠️ Un dépôt de 25% est requis pour confirmer votre rendez-vous.</p>
+
+  <div style="text-align:center; margin-top:30px;">
+    <a href="contact.html" style="background:#ffd700;color:#000;padding:12px 25px;border-radius:25px;text-decoration:none;font-weight:bold;">Prendre rendez-vous</a>
+  </div>
+
 </section>
-
-<footer>© 2026 GlowShine Car</footer>
-
-<script>
-  setTimeout(() => {
-    const cinematic = document.getElementById("cinematic");
-    cinematic.style.animation = "fadeOutCinematic 1s forwards";
-  }, 5500);
-</script>
 
 </body>
 </html>
@@ -100,7 +146,7 @@ body {
 }
 
 header {
-  background: #000;
+  background: linear-gradient(135deg, #000, #1c1c1c);
   padding: 60px 20px;
   text-align: center;
 }
@@ -108,10 +154,17 @@ header {
 header h1 {
   color: #ffd700;
   font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+header a {
+  color: #ffd700;
+  text-decoration: none;
+  font-size: 0.95rem;
 }
 
 section {
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
   padding: 60px 20px;
 }
@@ -133,26 +186,32 @@ h2 {
 
 input, textarea {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   margin-bottom: 15px;
   border-radius: 8px;
   border: none;
   background: #2a2a2a;
   color: #fff;
+  font-size: 1rem;
 }
 
 input::placeholder, textarea::placeholder {
-  color: #ccc;
+  color: #bbb;
 }
 
 button {
   background: #ffd700;
   color: #000;
-  padding: 12px 25px;
+  padding: 14px 30px;
   border: none;
-  border-radius: 25px;
+  border-radius: 30px;
   font-weight: bold;
   cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  opacity: 0.9;
 }
 
 .depot {
@@ -161,9 +220,11 @@ button {
   font-weight: bold;
 }
 
-a {
-  color: #ffd700;
-  text-decoration: none;
+.success {
+  display: none;
+  margin-top: 20px;
+  color: #7CFC00;
+  font-weight: bold;
 }
 </style>
 </head>
@@ -177,38 +238,33 @@ a {
 
 <section>
 
-  <!-- SECTION NOTRE APPROCHE -->
+  <!-- NOTRE APPROCHE -->
   <div class="box">
     <h2>Notre approche</h2>
     <p>
       Chez GlowShine Car, chaque véhicule est traité avec précision, soin et respect.
-      Nous effectuons un nettoyage complet de l’intérieur et de l’extérieur pour
-      redonner à votre voiture un aspect impeccable.  
-      Nos installations de vitres teintées sont réalisées avec soin pour un rendu
-      durable et propre. Chaque finition est vérifiée afin de garantir la qualité
-      professionnelle de nos services.
+      Nous offrons un nettoyage intérieur et extérieur complet, ainsi que l’installation
+      de vitres teintées de haute qualité. Chaque service se termine par une inspection
+      rigoureuse afin de garantir un résultat impeccable.
     </p>
   </div>
 
-  <!-- FORMULAIRE DE RENDEZ-VOUS -->
+  <!-- FORMULAIRE -->
   <div class="box">
     <h2>Prendre rendez-vous</h2>
-    <form action="mailto:Glowshinecar@gmail.com" method="POST" enctype="text/plain">
+
+    <form action="https://formspree.io/f/xbdggwvk" method="POST">
       <input type="text" name="Nom" placeholder="Nom complet" required>
       <input type="tel" name="Téléphone" placeholder="Numéro de téléphone" required>
-      <textarea name="Message" placeholder="Message ou service désiré"></textarea>
-      <button type="submit">Envoyer</button>
+      <textarea name="Message" placeholder="Service désiré / informations supplémentaires"></textarea>
 
-      <!-- DÉPÔT OBLIGATOIRE -->
+      <button type="submit">Envoyer la demande</button>
+
       <p class="depot">⚠️ Dépôt obligatoire de 25% pour confirmer le rendez-vous.</p>
     </form>
-  </div>
 
-  <!-- CONTACT EMAIL DIRECT -->
-  <div class="box">
-    <h2>Contact</h2>
-    <p>
-      <a href="mailto:Glowshinecar@gmail.com">Glowshinecar@gmail.com</a>
+    <p class="success">
+      ✅ Merci ! Votre demande a été envoyée. Nous vous contacterons rapidement.
     </p>
   </div>
 
