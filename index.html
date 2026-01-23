@@ -3,66 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GlowShine Car | Rendez-vous</title>
+<title>GlowShine Car | Accueil</title>
 <style>
 body { margin:0; font-family:Arial, Helvetica, sans-serif; background:#0e0e0e; color:#f5f5f5; }
-header { background: linear-gradient(135deg, #000, #1c1c1c); padding:50px 20px; text-align:center; }
-header h1 { color:#ffd700; font-size:2.5rem; margin-bottom:10px; }
-header a { color:#ffd700; text-decoration:none; font-size:0.95rem; }
-section { max-width:700px; margin:auto; padding:50px 20px; }
-h2 { color:#ffd700; margin-bottom:15px; text-align:center; }
-.box { background:#1a1a1a; padding:30px; border-radius:12px; margin-bottom:30px; box-shadow:0 10px 30px rgba(0,0,0,0.6); line-height:1.7; color:#ccc; }
-input, textarea { width:100%; padding:14px; margin-bottom:15px; border-radius:8px; border:none; background:#2a2a2a; color:#fff; font-size:1rem; }
-input::placeholder, textarea::placeholder { color:#bbb; }
-button { background:#ffd700; color:#000; padding:14px 30px; border:none; border-radius:30px; font-weight:bold; cursor:pointer; font-size:1rem; width:100%; }
-.depot { margin-top:20px; color:#ffd700; font-weight:bold; text-align:center; }
-footer { text-align:center; padding:20px; background:#000; color:#777; font-size:0.9rem; margin-top:30px; }
+header { position:relative; width:100%; height:400px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=2000'); background-size:cover; background-position:center; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; color:#ffd700; }
+header h1 { font-size:3.5rem; margin-bottom:10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
+header p { font-size:1.3rem; color:#fff; }
+section { max-width:1000px; margin:auto; padding:50px 20px; }
+h2 { color:#ffd700; margin-bottom:30px; text-align:center; font-size:2rem; }
+.service-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; }
+.service-box { background:#1a1a1a; padding:30px; border-radius:15px; border: 1px solid #333; box-shadow:0 10px 30px rgba(0,0,0,0.5); text-align:center; transition: 0.3s; }
+.service-box:hover { border-color: #ffd700; }
+.service-box h3 { color:#ffd700; margin-top:0; }
+.price { font-size:1.2rem; font-weight:bold; color:#fff; margin:10px 0; }
+.depot { margin-top:30px; color:#ffd700; font-weight:bold; text-align:center; font-style: italic; }
+.cta-container { text-align:center; margin-top:40px; }
+a.button { background:#ffd700; color:#000; padding:15px 35px; border-radius:50px; text-decoration:none; font-weight:bold; font-size:1.1rem; display:inline-block; transition: 0.3s; }
+a.button:hover { background:#fff; transform: scale(1.05); }
 </style>
 </head>
 <body>
 
 <header>
-<h1>Notre Approche</h1>
-<a href="index.html">← Retour à l’accueil</a>
+<h1>GlowShine Car</h1>
+<p>L'excellence du detailing à votre porte</p>
 </header>
 
 <section>
+<h2>Nos Forfaits</h2>
+<div class="service-grid">
 
-<div class="box">
-<h2>Un service professionnel</h2>
-<p>Chez GlowShine Car, chaque véhicule est traité avec précision, soin et respect. Notre approche repose sur une méthode structurée, des produits de qualité professionnelle et une attention particulière aux détails.</p>
+<div class="service-box">
+<h3>Sedan</h3>
+<p class="price">Lavage + Détail - 200$</p>
+<p class="price">Vitres Teintées - 250$</p>
+<p style="color:#ffd700">Combo Premium - 450$</p>
 </div>
 
-<div class="box">
-<h2>Intérieur & Extérieur</h2>
-<p>Nettoyage complet intérieur et extérieur pour redonner au véhicule une apparence propre et éclatante, tout en préservant les matériaux.</p>
+<div class="service-box">
+<h3>SUV / Crossover</h3>
+<p class="price">Lavage + Détail - 250$</p>
+<p class="price">Vitres Teintées - 300$</p>
+<p style="color:#ffd700">Combo Premium - 550$</p>
 </div>
 
-<div class="box">
-<h2>Vitres teintées</h2>
-<p>Nos installations de vitres teintées sont réalisées avec précision pour un rendu propre et durable, conforme aux standards de qualité.</p>
+<div class="service-box">
+<h3>Truck / Van</h3>
+<p class="price">Lavage + Détail - 300$</p>
+<p class="price">Vitres Teintées - 400$</p>
+<p style="color:#ffd700">Combo Premium - 700$</p>
 </div>
 
-<div class="box">
-<h2>Finition & Qualité</h2>
-<p>Chaque service se termine par une inspection complète afin de garantir un résultat impeccable et à la hauteur des attentes de nos clients.</p>
 </div>
 
-<div class="box">
-<h2>Prendre rendez-vous</h2>
-<form action="https://formspree.io/f/xbdggwvk" method="POST">
-<input type="text" name="Nom" placeholder="Nom complet" required>
-<input type="email" name="Email" placeholder="Votre email" required>
-<input type="tel" name="Téléphone" placeholder="Numéro de téléphone" required>
-<textarea name="Service" placeholder="Service désiré / informations supplémentaires" required></textarea>
-<button type="submit">Envoyer la demande</button>
-<p class="depot">⚠️ Dépôt obligatoire de 25% pour confirmer le rendez-vous.</p>
-</form>
-</div>
+<p class="depot">⚠️ Dépôt obligatoire de 25% pour confirmer votre rendez-vous.</p>
 
+<div class="cta-container">
+<a href="contact.html" class="button">Prendre rendez-vous maintenant</a>
+</div>
 </section>
-
-<footer>© 2026 GlowShine Car – Qualité & Finition</footer>
 
 </body>
 </html>
