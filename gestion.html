@@ -5,97 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlowShine | Gestion Staff</title>
     <style>
-        body { 
-            margin:0; 
-            font-family: 'Segoe UI', sans-serif; 
-            background:#0e0e0e; 
-            color:#f5f5f5; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            min-height: 100vh; 
-            padding: 20px; 
-        }
+        body { margin:0; font-family: 'Segoe UI', sans-serif; background:#0e0e0e; color:#f5f5f5; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        header { width: 100%; max-width: 600px; text-align: center; padding: 30px 0; border-bottom: 2px solid #ffd700; margin-bottom: 30px; }
+        header h1 { color: #ffd700; text-transform: uppercase; letter-spacing: 2px; margin: 0; font-size: 1.5rem; }
 
-        h2 { 
-            color: #ffd700; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            margin: 40px 0; 
-            font-size: 1.5rem;
-        }
+        .staff-list { width: 100%; max-width: 500px; display: flex; flex-direction: column; gap: 15px; }
         
-        .staff-grid { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 15px; 
-            width: 100%; 
-            max-width: 350px; 
-        }
-
-        /* Style des boutons noirs et jaunes identiques à tes captures */
-        .staff-btn { 
-            background: #1a1a1a; 
-            color: white; 
-            padding: 20px; 
-            text-align: center; 
-            text-decoration: none;
-            border-radius: 12px; 
-            border: 1px solid #333; 
-            font-weight: bold; 
-            font-size: 1.1rem; 
-            transition: 0.3s;
-            text-transform: uppercase;
+        .staff-card { 
+            background: #1a1a1a; padding: 20px; border-radius: 12px; border: 1px solid #333; 
+            text-align: center; text-decoration: none; color: white; transition: 0.3s;
+            font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
             display: block;
         }
+        .staff-card:hover { border-color: #ffd700; transform: scale(1.02); background: #222; }
 
-        .staff-btn:hover { 
-            border-color: #ffd700; 
-            background: #222; 
-            transform: scale(1.02); 
-        }
+        .boss-btn { margin-top: 50px; border: 2px dashed #ffd700; color: #ffd700; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.3s; text-align: center; width: 100%; max-width: 440px; box-sizing: border-box; }
+        .boss-btn:hover { background: rgba(255, 215, 0, 0.1); }
 
-        /* Bouton BOSS avec pointillés */
-        .boss-btn { 
-            border: 2px dashed #ffd700; 
-            color: #ffd700; 
-            margin-top: 20px; 
-            background: rgba(255, 215, 0, 0.05);
-        }
-        
-        .logout-link { 
-            margin-top: 50px; 
-            color: #555; 
-            text-decoration: none; 
-            font-size: 0.8rem; 
-            border-bottom: 1px solid #333; 
-            padding-bottom: 2px;
-        }
+        .logout { margin-top: 30px; color: #555; text-decoration: underline; font-size: 0.8rem; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
-    <h2>TABLEAU DE BORD ADMIN</h2>
+    <header>
+        <h1>TABLEAU DE BORD ADMIN</h1>
+    </header>
 
-    <div class="staff-grid">
-        <a href="https://docs.google.com/document/d/1nYAKwhjy5SqWVmdwvcM5TCiSl4vHB6CVMCFKwM5t21s/view" target="_blank" rel="noopener noreferrer" class="staff-btn">
-            SK
-        </a>
-
-        <a href="https://docs.google.com/document/d/1cvQN24bctnL6mACYS_Zd8Oyl1cKpv-o7uGsQ-30tiqQ/view" target="_blank" rel="noopener noreferrer" class="staff-btn">
-            EVANS
-        </a>
+    <div class="staff-list">
+        <a href="https://docs.google.com/document/d/1taAyhrLvv_9pc8PSb27k5TM2YmMOO_sl2aa0hv4Rj4c/edit?usp=sharing" target="_blank" class="staff-card">NICO PETIT</a>
         
-        <a href="https://docs.google.com/document/d/1STv5qyWu6yMLfimx4IzKqSZFGZE8l4tTDy-BsS0-QA0/view" target="_blank" rel="noopener noreferrer" class="staff-btn">
-            DP
-        </a>
-
-        <a href="admin-panel.html" class="staff-btn boss-btn">
-            GESTION GLOBALE (BOSS)
-        </a>
+        <a href="https://docs.google.com/spreadsheets/d/1yIUnzWl33pA8VqY15S7YQG71638lP9o1P3V7UAsR0Y8/edit" target="_blank" class="staff-card">SK</a>
+        <a href="https://docs.google.com/spreadsheets/d/1S8R6m3lK3_wAat19l0jA0R5uR4NfI_Y66P6fGqX6E0Y/edit" target="_blank" class="staff-card">EVANS</a>
+        <a href="https://docs.google.com/spreadsheets/d/1B0Z-X0Vn_L7fM-70-G8o_S08H5S4H4G4G4G4G4G4G4G/edit" target="_blank" class="staff-card">DP</a>
     </div>
 
-    <a href="index.html" class="logout-link">← SE DÉCONNECTER</a>
+    <a href="admin-panel.html" class="boss-btn">GESTION GLOBALE (BOSS)</a>
+
+    <a href="login.html" class="logout">← SE DÉCONNECTER</a>
 
 </body>
 </html>
