@@ -17,7 +17,7 @@
 <body>
 
 <div class="login-card">
-    <h1>Espace Employé</h1>
+    <h1>Espace Gestion</h1>
     <form id="loginForm">
         <input type="text" id="username" placeholder="Identifiant" required>
         <input type="password" id="password" placeholder="Mot de passe" required>
@@ -33,11 +33,13 @@
         const user = document.getElementById('username').value;
         const pass = document.getElementById('password').value;
 
-        // TU PEUX CHANGER LE MOT DE PASSE ICI (Ex: admin / Glow2024)
-        if(user === "admin" && pass === "Glow2024") {
-            alert("Connexion réussie ! Redirection vers la gestion...");
-            // Ici on redirigera vers une page de gestion plus tard
-            window.location.href = "index.html"; 
+        // LOGIQUE DE CONNEXION AVEC PLUSIEURS COMPTES
+        if ((user === "admin" && pass === "glow2026") || 
+            (user === "Sk" && pass === "MoneyCash")) {
+            
+            alert("Connexion réussie pour " + user + " !");
+            // Redirection vers la page de gestion (à créer)
+            window.location.href = "gestion.html"; 
         } else {
             document.getElementById('error-msg').style.display = 'block';
         }
