@@ -35,21 +35,31 @@ Votre navigateur ne supporte pas la vidéo.
 <section>
 <h2>Nos services</h2>
 <div class="service-grid">
+
+<!-- Sedan -->
 <div class="service-box">
-<h3>Sedan</h3>
-<p>Nettoyage complet intérieur & extérieur</p>
-<p>Prix : 100$</p>
+<h3>Sedan - Intérieur / Extérieur</h3>
+<p>Lavage + Détail - 200$</p>
+<p>Vitres Teintées - 250$</p>
+<p>Combo Prenium - 450$</p>
 </div>
+
+<!-- SUV / Crossover -->
 <div class="service-box">
-<h3>SUV / Crossover</h3>
-<p>Nettoyage complet intérieur & extérieur</p>
-<p>Prix : 150$</p>
+<h3>SUV / Crossover - Intérieur / Extérieur</h3>
+<p>Lavage + Détail - 250$</p>
+<p>Vitres Teintées - 300$</p>
+<p>Combo Prenium - 550$</p>
 </div>
+
+<!-- Truck / Van -->
 <div class="service-box">
-<h3>Truck / Camion</h3>
-<p>Nettoyage complet intérieur & extérieur</p>
-<p>Prix : 200$</p>
+<h3>Truck / Van - Intérieur / Extérieur</h3>
+<p>Lavage + Détail - 300$</p>
+<p>Vitres Teintées - 400$</p>
+<p>Combo Prenium - 700$</p>
 </div>
+
 </div>
 <p class="depot">⚠️ Dépôt obligatoire de 25% pour confirmer votre rendez-vous.</p>
 <div style="text-align:center; margin-top:30px;">
@@ -72,7 +82,7 @@ header h1 { color:#ffd700; font-size:2.5rem; margin-bottom:10px; }
 header a { color:#ffd700; text-decoration:none; font-size:0.95rem; }
 section { max-width:700px; margin:auto; padding:50px 20px; }
 h2 { color:#ffd700; margin-bottom:15px; text-align:center; }
-form { background:#1a1a1a; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.6); color:#ccc; }
+.box { background:#1a1a1a; padding:30px; border-radius:12px; margin-bottom:30px; box-shadow:0 10px 30px rgba(0,0,0,0.6); line-height:1.7; color:#ccc; }
 input, textarea { width:100%; padding:14px; margin-bottom:15px; border-radius:8px; border:none; background:#2a2a2a; color:#fff; font-size:1rem; }
 input::placeholder, textarea::placeholder { color:#bbb; }
 button { background:#ffd700; color:#000; padding:14px 30px; border:none; border-radius:30px; font-weight:bold; cursor:pointer; font-size:1rem; width:100%; }
@@ -83,13 +93,35 @@ footer { text-align:center; padding:20px; background:#000; color:#777; font-size
 <body>
 
 <header>
-<h1>Prendre Rendez-vous</h1>
+<h1>Notre Approche</h1>
 <a href="index.html">← Retour à l’accueil</a>
 </header>
 
 <section>
+
+<div class="box">
+<h2>Un service professionnel</h2>
+<p>Chez GlowShine Car, chaque véhicule est traité avec précision, soin et respect. Notre approche repose sur une méthode structurée, des produits de qualité professionnelle et une attention particulière aux détails.</p>
+</div>
+
+<div class="box">
+<h2>Intérieur & Extérieur</h2>
+<p>Nettoyage complet intérieur et extérieur pour redonner au véhicule une apparence propre et éclatante, tout en préservant les matériaux.</p>
+</div>
+
+<div class="box">
+<h2>Vitres teintées</h2>
+<p>Nos installations de vitres teintées sont réalisées avec précision pour un rendu propre et durable, conforme aux standards de qualité.</p>
+</div>
+
+<div class="box">
+<h2>Finition & Qualité</h2>
+<p>Chaque service se termine par une inspection complète afin de garantir un résultat impeccable et à la hauteur des attentes de nos clients.</p>
+</div>
+
+<div class="box">
+<h2>Prendre rendez-vous</h2>
 <form action="https://formspree.io/f/xbdggwvk" method="POST">
-<h2>Envoyez-nous vos informations</h2>
 <input type="text" name="Nom" placeholder="Nom complet" required>
 <input type="email" name="Email" placeholder="Votre email" required>
 <input type="tel" name="Téléphone" placeholder="Numéro de téléphone" required>
@@ -97,6 +129,8 @@ footer { text-align:center; padding:20px; background:#000; color:#777; font-size
 <button type="submit">Envoyer la demande</button>
 <p class="depot">⚠️ Dépôt obligatoire de 25% pour confirmer le rendez-vous.</p>
 </form>
+</div>
+
 </section>
 
 <footer>© 2026 GlowShine Car – Qualité & Finition</footer>
