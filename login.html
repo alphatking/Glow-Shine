@@ -3,62 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion GlowShine</title>
+    <title>GlowShine Car | Connexion Staff</title>
     <style>
-        body { background: #0e0e0e; color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
-        .box { background: #1a1a1a; padding: 35px; border-radius: 15px; border: 2px solid #ffd700; text-align: center; width: 320px; box-shadow: 0 0 20px rgba(255, 215, 0, 0.1); }
-        h2 { color: #ffd700; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
-        input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #333; background: #000; color: white; box-sizing: border-box; font-size: 16px; }
-        input:focus { border-color: #ffd700; outline: none; }
-        button { width: 100%; padding: 12px; background: #ffd700; color: black; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; margin-top: 15px; transition: 0.3s; }
-        button:hover { background: #ffc400; transform: translateY(-2px); }
-        #msg { color: #ff4444; margin-top: 15px; font-size: 0.9rem; font-weight: bold; }
-        .back { display: block; margin-top: 20px; color: #666; text-decoration: none; font-size: 0.8rem; }
+        body { 
+            margin:0; font-family: 'Segoe UI', sans-serif; 
+            background: #0e0e0e; color: #f5f5f5; 
+            display: flex; justify-content: center; align-items: center; 
+            height: 100vh;
+        }
+        .login-card {
+            background: #1a1a1a; padding: 40px; border-radius: 15px;
+            border: 1px solid #ffd700; box-shadow: 0 0 25px rgba(255, 215, 0, 0.1);
+            width: 100%; max-width: 350px; text-align: center;
+        }
+        .login-card h2 { color: #ffd700; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
+        .input-group { margin-bottom: 20px; text-align: left; }
+        .input-group label { display: block; color: #ffd700; font-size: 0.75rem; margin-bottom: 8px; font-weight: bold; }
+        .input-group input {
+            width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #333;
+            background: #000; color: white; box-sizing: border-box; outline: none;
+        }
+        .btn-login {
+            width: 100%; padding: 14px; background: #ffd700; color: black;
+            border: none; border-radius: 5px; font-weight: bold; cursor: pointer;
+            text-transform: uppercase; margin-top: 10px; transition: 0.3s;
+        }
+        .btn-login:hover { background: #fff; }
+        .back-home { display: block; margin-top: 25px; color: #555; text-decoration: none; font-size: 0.85rem; }
     </style>
 </head>
 <body>
 
-<div class="box">
-    <h2>GlowShine Log</h2>
-    <input type="text" id="user" placeholder="Identifiant">
-    <input type="password" id="pass" placeholder="Mot de passe">
-    <button onclick="connecter()">SE CONNECTER</button>
-    <p id="msg"></p>
-    <a href="index.html" class="back">← Retour au site</a>
-</div>
+    <div class="login-card">
+        <h2>GlowShine Staff</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label>IDENTIFIANT</label>
+                <input type="text" id="username" placeholder="Ton nom" required autocomplete="off">
+            </div>
+            <div class="input-group">
+                <label>MOT DE PASSE</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn-login">Se Connecter</button>
+        </form>
+        <a href="index.html" class="back-home">← Retour au site client</a>
+    </div>
 
-<script>
-    function connecter() {
-        const u = document.getElementById('user').value.trim().toLowerCase();
-        const p = document.getElementById('pass').value.trim();
-        const msg = document.getElementById('msg');
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
 
-        // --- LISTE COMPLÈTE DES ACCÈS ---
-        if (u === "admin" && p === "glow2026") {
-            alert("Accès autorisé : Bonjour Boss !");
-            window.location.href = "gestion.html";
-        } 
-        else if (u === "sk" && p === "MoneyCash") {
-            alert("Accès autorisé : Bonjour Sk !");
-            window.location.href = "gestion.html";
-        } 
-        else if ((u === "evans" || u === "evans ducharmes") && p === "4503") {
-            alert("Accès autorisé : Bonjour Evans !");
-            window.location.href = "gestion.html";
-        } 
-        else if ((u === "nathan" || u === "nathan brodeur") && p === "7526") {
-            alert("Accès autorisé : Bonjour Nathan !");
-            window.location.href = "gestion.html";
-        } 
-        else if ((u === "nico" || u === "nico petit") && p === "8372") {
-            alert("Accès autorisé : Bonjour Nico !");
-            window.location.href = "gestion.html";
-        } 
-        else {
-            msg.innerText = "Identifiant ou mot de passe incorrect.";
-        }
-    }
-</script>
-
+            // --- TABLEAU DES ACCÈS GLOWSHINE ---
+            
+            // 1. BOSS (Toi)
+            if(user === "admin" && pass === "2774") {
+                window.location.href = "gestion.html";
+            } 
+            // 2. SK
+            else if(user === "SK" && pass === "MoneyCash") {
+                window.location.href = "travaux.html";
+            }
+            // 3. EVANS
+            else if(user === "EVANS" && pass === "4503") {
+                window.location.href = "travaux.html";
+            }
+            // 4. DP
+            else if(user === "Dp" && pass === "5403") {
+                window.location.href = "travaux.html";
+            }
+            else {
+                alert("Accès refusé. Identifiant ou mot de passe incorrect.");
+            }
+        });
+    </script>
 </body>
 </html>
