@@ -1,118 +1,131 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>GlowShine Car | Accueil</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>GlowShine Car | Accueil</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0e0e0e;
-      color: #f5f5f5;
-    }
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0e0e0e;
+    color: #f5f5f5;
+    overflow-x: hidden;
+  }
 
-    /* CINÉMATIQUE AVEC VOITURE */
-    #cinematic {
-      position: fixed;
-      inset: 0;
-      background: 
-        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
-        url("https://images.unsplash.com/photo-1605559424843-9e4c228bf1c4"); /* remplacer par votre voiture */
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      animation: fadeOut 1.5s ease forwards;
-      animation-delay: 4.5s;
-    }
+  /* CINÉMATIQUE */
+  #cinematic {
+    position: fixed;
+    inset: 0;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 9999;
+    overflow: hidden;
+  }
 
-    .cinematic-content {
-      text-align: center;
-      color: #ffd700;
-      animation: zoomIn 2.5s ease forwards;
-    }
+  #car {
+    width: 400px;
+    position: absolute;
+    left: -500px;
+    bottom: 50px;
+    animation: carSlide 5s forwards;
+  }
 
-    .cinematic-content h1 {
-      font-size: 3.5rem;
-      letter-spacing: 4px;
-    }
+  @keyframes carSlide {
+    0% { left: -500px; }
+    100% { left: 50%; transform: translateX(-50%); }
+  }
 
-    .cinematic-content p {
-      color: #ccc;
-      margin-top: 10px;
-    }
+  #company-name {
+    font-size: 4rem;
+    color: #ffd700;
+    text-shadow: 0 0 20px #ffd700, 0 0 40px #ffd700, 0 0 60px #ffcc00;
+    opacity: 0;
+    animation: fadeInText 2s forwards 1s;
+  }
 
-    @keyframes zoomIn {
-      from { opacity: 0; transform: scale(0.85); }
-      to { opacity: 1; transform: scale(1); }
-    }
+  #slogan {
+    font-size: 1.5rem;
+    color: #ccc;
+    margin-top: 15px;
+    opacity: 0;
+    animation: fadeInText 2s forwards 2.5s;
+  }
 
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
-    }
+  @keyframes fadeInText {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
 
-    header {
-      background: linear-gradient(135deg, #000, #1c1c1c);
-      padding: 80px 20px;
-      text-align: center;
-    }
+  @keyframes fadeOutCinematic {
+    to { opacity: 0; visibility: hidden; }
+  }
 
-    header h1 {
-      color: #ffd700;
-      font-size: 3rem;
-    }
+  header {
+    background: linear-gradient(135deg, #000, #1c1c1c);
+    padding: 80px 20px;
+    text-align: center;
+  }
 
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 60px 20px;
-    }
+  header h1 {
+    color: #ffd700;
+    font-size: 3rem;
+  }
 
-    h2 {
-      color: #ffd700;
-    }
+  section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 20px;
+  }
 
-    .box {
-      background: #1a1a1a;
-      padding: 30px;
-      border-radius: 12px;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      color: #ccc;
-      line-height: 1.6;
-    }
+  h2 { color: #ffd700; }
 
-    .price {
-      color: #ffd700;
-      font-weight: bold;
-    }
+  .box {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    color: #ccc;
+    line-height: 1.6;
+  }
 
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 28px;
-      background: #ffd700;
-      color: #000;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-    }
+  .price {
+    color: #ffd700;
+    font-weight: bold;
+  }
 
-  </style>
+  .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 28px;
+    background: #ffd700;
+    color: #000;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+  }
+
+  footer {
+    text-align: center;
+    padding: 25px;
+    background: #000;
+    color: #777;
+  }
+</style>
 </head>
 
 <body>
 
 <!-- CINÉMATIQUE -->
 <div id="cinematic">
-  <div class="cinematic-content">
-    <h1>GlowShine Car</h1>
-    <p>Detailing • Vitres teintées • Finition premium</p>
-  </div>
+  <img id="car" src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c4" alt="Voiture" />
+  <div id="company-name">GlowShine Car</div>
+  <div id="slogan">Detailing • Vitres teintées • Finition premium</div>
 </div>
 
 <header>
@@ -121,48 +134,39 @@
 </header>
 
 <section>
-
   <div class="box">
     <h2>Nos services & prix</h2>
-
     <p><strong>Sedan</strong><br>
       Lavage + Détail : <span class="price">200$</span><br>
       Vitres teintées : <span class="price">250$</span><br>
       Combo Premium : <span class="price">450$</span>
     </p>
-
     <p><strong>SUV / Crossover</strong><br>
       Lavage + Détail : <span class="price">250$</span><br>
       Vitres teintées : <span class="price">300$</span><br>
       Combo Premium : <span class="price">550$</span>
     </p>
-
     <p><strong>Truck / Van</strong><br>
       Lavage + Détail : <span class="price">300$</span><br>
       Vitres teintées : <span class="price">400$</span><br>
       Combo Premium : <span class="price">700$</span>
     </p>
-
     <a class="btn" href="contact.html">Prendre rendez-vous</a>
   </div>
 
   <div class="box">
     <h2>Dépôt obligatoire</h2>
-    <p>
-      Un <strong>dépôt de 25%</strong> est requis pour confirmer tout rendez-vous.
-    </p>
+    <p>Un <strong>dépôt de 25%</strong> est requis pour confirmer tout rendez-vous.</p>
   </div>
-
 </section>
 
-<footer>
-  © 2026 GlowShine Car
-</footer>
+<footer>© 2026 GlowShine Car</footer>
 
 <script>
   setTimeout(() => {
-    document.getElementById("cinematic").style.display = "none";
-  }, 6000);
+    const cinematic = document.getElementById("cinematic");
+    cinematic.style.animation = "fadeOutCinematic 1s forwards";
+  }, 5500);
 </script>
 
 </body>
@@ -234,27 +238,31 @@
       color: #ffd700;
       text-decoration: none;
     }
-
   </style>
 </head>
 
 <body>
 
 <header>
-  <h1>Notre approche</h1>
+  <h1>GlowShine Car</h1>
   <a href="index.html">← Retour à l’accueil</a>
 </header>
 
 <section>
 
+  <!-- SECTION NOTRE APPROCHE -->
   <div class="box">
+    <h2>Notre approche</h2>
     <p>
       Chez GlowShine Car, chaque véhicule est traité avec précision, soin et respect.
-      Nous offrons un nettoyage complet de l’intérieur et de l’extérieur, et une installation
-      de vitres teintées professionnelle pour un rendu durable.
+      Nous effectuons un nettoyage complet de l’intérieur et de l’extérieur, et installons
+      les vitres teintées avec soin pour un rendu propre et durable.
+      Nos produits sont de qualité professionnelle et chaque finition est vérifiée pour garantir
+      un résultat impeccable.
     </p>
   </div>
 
+  <!-- FORMULAIRE DE RENDEZ-VOUS -->
   <div class="box">
     <h2>Prendre rendez-vous</h2>
     <form>
@@ -263,12 +271,14 @@
       <textarea placeholder="Message ou service désiré"></textarea>
       <button type="submit">Envoyer</button>
 
+      <!-- DÉPÔT OBLIGATOIRE EN BAS -->
       <p class="depot">
         ⚠️ Dépôt obligatoire de 25% pour confirmer le rendez-vous.
       </p>
     </form>
   </div>
 
+  <!-- CONTACT EMAIL -->
   <div class="box">
     <h2>Contact</h2>
     <p>
