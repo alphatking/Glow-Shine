@@ -111,7 +111,6 @@
                 <p class="price">Lavage + Détail Intérieur - 200$</p>
                 <p class="price">Teintage de vitres - 250$</p>
                 <div class="combo-gold">⭐ COMBO PREMIUM - 400$</div>
-                <p style="color: #ffd700; font-size: 0.85rem; font-weight: bold; margin-top: 5px;">DÉPÔT REQUIS : 120$ (30%)</p>
                 <br><div class="btn-select">Sélectionner</div>
             </div>
         </a>
@@ -121,7 +120,6 @@
                 <p class="price">Lavage + Détail Intérieur - 250$</p>
                 <p class="price">Teintage de vitres - 300$</p>
                 <div class="combo-gold">⭐ COMBO PREMIUM - 500$</div>
-                <p style="color: #ffd700; font-size: 0.85rem; font-weight: bold; margin-top: 5px;">DÉPÔT REQUIS : 150$ (30%)</p>
                 <br><div class="btn-select">Sélectionner</div>
             </div>
         </a>
@@ -131,10 +129,55 @@
                 <p class="price">Lavage + Détail Intérieur - 300$</p>
                 <p class="price">Teintage de vitres - 400$</p>
                 <div class="combo-gold">⭐ COMBO PREMIUM - 650$</div>
-                <p style="color: #ffd700; font-size: 0.85rem; font-weight: bold; margin-top: 5px;">DÉPÔT REQUIS : 195$ (30%)</p>
                 <br><div class="btn-select">Sélectionner</div>
             </div>
         </a>
     </div>
 
-    </section>
+    <div class="discount-section">
+        <h3>🎁 OFFRES EXCLUSIVES</h3>
+        <p>Inscrivez votre courriel pour recevoir des <b>codes promo Black & Yellow</b> !</p>
+        <form action="#" class="discount-form">
+            <input type="email" placeholder="Votre adresse courriel" required>
+            <button type="submit" class="btn-submit">S'inscrire</button>
+        </form>
+    </div>
+
+    <div class="approach">
+        <h3>Notre Approche</h3>
+        <p>
+            ✨ Glow&Shine | L'éclat du succès 🚀 <br>
+            Votre vie brille, votre voiture aussi. 🧼 <br>
+            Expertise, Précision & Brillance extrême. <br>
+            📩 Contactez nous pour un résultat
+        </p>
+    </div>
+</section>
+
+<a href="contact.html" class="floating-contact">💬 CONTACTER UN EXPERT</a>
+
+<script>
+    function toggleMenu() { document.getElementById("sideMenu").classList.toggle("active"); }
+
+    var audio = document.getElementById("bgMusic");
+    function toggleMusic() {
+        if (audio.paused) {
+            audio.play().then(() => {
+                audio.volume = 0.4;
+                document.getElementById("musicText").innerText = "MUSIQUE : ON";
+                document.getElementById("musicIcon").innerText = "🔊";
+            }).catch(e => console.log("Interaction requise"));
+        } else {
+            audio.pause();
+            document.getElementById("musicText").innerText = "MUSIQUE : OFF";
+            document.getElementById("musicIcon").innerText = "🔇";
+        }
+    }
+
+    document.addEventListener('click', function() {
+        if (audio.paused) { toggleMusic(); }
+    }, { once: true });
+</script>
+
+</body>
+</html>
