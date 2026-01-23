@@ -5,127 +5,179 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlowShine Car | Accueil</title>
     <style>
-        :root { --gold: #ffd700; --dark-bg: #0a0a0a; --card-bg: #141414; }
-        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--dark-bg); color: white; text-align: center; }
+        body { margin:0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#0e0e0e; color:#f5f5f5; overflow-x: hidden; }
         
-        /* Header */
-        .top-bar { display: flex; justify-content: space-between; padding: 15px; align-items: center; }
-        .music-btn { background: var(--gold); color: black; border: none; padding: 5px 12px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; cursor: pointer; }
-        .menu-icon { color: var(--gold); font-size: 1.8rem; cursor: pointer; border: 2px solid var(--gold); padding: 5px 10px; border-radius: 5px; }
+        /* --- MENU --- */
+        .menu-icon {
+            position: fixed; top: 20px; right: 20px; z-index: 1000;
+            cursor: pointer; background: #1a1a1a; padding: 10px; border-radius: 5px; border: 1px solid #ffd700;
+        }
+        .menu-icon div { width: 25px; height: 3px; background-color: #ffd700; margin: 5px 0; transition: 0.4s; }
 
-        /* Hero & Approche */
-        .hero { padding: 30px 20px; }
-        .hero h1 { font-size: 2.8rem; color: var(--gold); margin: 0; text-transform: uppercase; letter-spacing: 2px; }
+        .side-menu {
+            position: fixed; top: 0; right: -300px; width: 280px; height: 100%;
+            background: #1a1a1a; z-index: 999; transition: 0.5s; padding-top: 80px;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.5); border-left: 2px solid #ffd700;
+        }
+        .side-menu.active { right: 0; }
+        .side-menu h3 { color: #ffd700; padding: 10px 25px; margin-top: 20px; border-bottom: 1px solid #333; font-size: 1.1rem; }
+        .side-menu a { padding: 15px 25px; text-decoration: none; font-size: 1rem; color: white; display: block; transition: 0.3s; }
+        .side-menu a:hover { background: #333; color: #ffd700; }
+        .close-btn { position: absolute; top: 20px; left: 20px; font-size: 1.5rem; color: #ffd700; cursor: pointer; }
+
+        /* --- BOUTON MUSIQUE --- */
+        .music-btn {
+            position: fixed; top: 20px; left: 20px; z-index: 1001;
+            background: rgba(26,26,26,0.9); border: 1px solid #ffd700; color: #ffd700;
+            padding: 8px 12px; border-radius: 5px; cursor: pointer; font-weight: bold;
+            display: flex; align-items: center; gap: 8px; font-size: 0.8rem;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+        }
+
+        /* --- HEADER --- */
+        header { width:100%; height:350px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=2000'); background-size:cover; background-position:center; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; color:#ffd700; border-bottom: 2px solid #ffd700; }
+        header h1 { font-size:3.5rem; margin-bottom:10px; text-transform: uppercase; letter-spacing: 2px; }
         
-        .approche-box { 
-            max-width: 700px; margin: 20px auto; padding: 20px; 
-            border-top: 1px solid #333; border-bottom: 1px solid #333;
-            background: rgba(255, 215, 0, 0.02);
-        }
-        .approche-box h2 { color: var(--gold); font-size: 1.2rem; margin-bottom: 10px; }
-        .approche-box p { font-size: 0.95rem; line-height: 1.5; color: #ddd; }
-
-        /* Services */
-        .selection-title { color: var(--gold); margin: 40px 0 20px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
-        .services-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 0 10px; }
+        section { max-width:1100px; margin:auto; padding:40px 20px; }
+        h2 { color:#ffd700; text-align:center; margin-bottom:40px; font-size: 2rem; }
         
-        .card { 
-            background: var(--card-bg); border-radius: 15px; width: 300px; padding: 30px 20px; 
-            border: 1px solid #222; transition: 0.3s;
-        }
-        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .card h3 { font-size: 1.3rem; margin-bottom: 20px; color: #fff; }
-        .card p { font-size: 0.9rem; margin: 8px 0; color: #bbb; }
-        .premium { color: var(--gold); font-weight: bold; margin: 15px 0; display: block; font-size: 1rem; }
-        
-        .option-btn { 
-            background: none; border: 1px solid var(--gold); color: var(--gold); 
-            padding: 12px 30px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 15px;
-            transition: 0.3s;
-        }
-        .option-btn:hover { background: var(--gold); color: black; }
+        .service-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; }
+        .service-card { text-decoration: none; color: inherit; display: block; }
+        .service-box { background:#1a1a1a; padding:35px; border-radius:15px; border: 1px solid #333; text-align:center; transition: 0.4s; height: 100%; box-sizing: border-box; }
+        .service-box:hover { border-color: #ffd700; transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .service-box h3 { color:#ffd700; font-size: 1.8rem; margin-bottom: 15px; }
+        .price { font-size:1.2rem; margin:10px 0; color:#ddd; }
+        .btn-select { margin-top:25px; display:inline-block; padding:12px 25px; border: 1px solid #ffd700; color:#ffd700; border-radius:5px; font-weight:bold; text-transform: uppercase; }
 
-        /* Zone Privilège */
-        .privilege-zone { 
-            margin: 60px auto; width: 85%; max-width: 500px;
-            border: 2px dashed var(--gold); padding: 25px; border-radius: 15px;
+        /* --- ANIMATION COMBO --- */
+        @keyframes goldShine { 0% { background-position: -200%; } 100% { background-position: 200%; } }
+        @keyframes goldPulse { 0% { transform: scale(1); filter: drop-shadow(0 0 2px #ffd700); } 100% { transform: scale(1.03); filter: drop-shadow(0 0 8px #ffd700); } }
+        .combo-gold {
+            font-weight: 900; font-size: 1.2rem;
+            background: linear-gradient(90deg, #ffd700, #fff, #ffd700);
+            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: goldShine 3s linear infinite, goldPulse 1.5s ease-in-out infinite alternate;
+            display: inline-block; margin: 10px 0; text-transform: uppercase;
         }
-        .email-box { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; align-items: center; }
-        input { background: #000; border: 1px solid #333; color: white; padding: 12px; border-radius: 5px; width: 90%; text-align: center; }
-        .sub-btn { background: var(--gold); color: black; border: none; padding: 12px; border-radius: 5px; font-weight: bold; width: 90%; cursor: pointer; }
 
-        .contact-float { 
-            position: fixed; bottom: 20px; right: 20px; background: var(--gold); color: black; 
-            padding: 15px 25px; border-radius: 30px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-        }
+        /* --- ZONE RABAIS --- */
+        .discount-section { background: #111; padding: 40px; border-radius: 20px; border: 2px dashed #ffd700; margin-top: 50px; text-align: center; }
+        .discount-form { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+        .discount-form input { padding: 12px 20px; border-radius: 5px; border: 1px solid #333; background: #000; color: white; width: 250px; outline: none; }
+        .btn-submit { background: #ffd700; color: black; border: none; padding: 12px 30px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
+
+        .approach { background:#161616; padding:35px; border-radius:15px; margin-top:50px; border-left: 6px solid #ffd700; }
+        .approach h3 { color:#ffd700; margin-top:0; font-size: 1.5rem; }
+        .floating-contact { position: fixed; bottom: 25px; right: 25px; background: #ffd700; color: black; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 99; box-shadow: 0 5px 15px rgba(255,215,0,0.4); }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <button class="music-btn">🔊 MUSIQUE : ON</button>
-        <div class="menu-icon" onclick="verifierCode()">≡</div>
+<audio id="bgMusic" loop preload="auto">
+    <source src="Wiz_Khalifa_-_Black_And_Yellow_[G-Mix]_ft._Snoop_Dogg,_Juicy_J_&_T-Pain_128k.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()" id="musicBtn">
+    <span id="musicIcon">🎵</span> <span id="musicText">ACTIVER L'AMBIANCE</span>
+</button>
+
+<div class="menu-icon" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+</div>
+
+<div id="sideMenu" class="side-menu">
+    <span class="close-btn" onclick="toggleMenu()">×</span>
+    <h3>👤 ESPACE CLIENT</h3>
+    <a href="index.html">Accueil</a>
+    <a href="contact.html">Prendre Rendez-vous</a>
+    <a href="#services">Nos Services</a>
+    
+    <h3>🛠️ ÉQUIPE GLOWSHINE</h3>
+    <a href="travaux.html" style="color: #ffd700; font-weight: bold;">🛠️ Accès Staff</a>
+    <a href="login.html">Connexion Admin</a>
+</div>
+
+<header>
+    <h1>GlowShine Car</h1>
+    <p>Le detailing de luxe qui se déplace chez vous</p>
+</header>
+
+<section id="services">
+    <h2>Choisissez votre catégorie</h2>
+    <div class="service-grid">
+        <a href="choix-sedan.html" class="service-card">
+            <div class="service-box">
+                <h3>SEDAN</h3>
+                <p class="price">Lavage + Détail Intérieur - 200$</p>
+                <p class="price">Teintage de vitres - 250$</p>
+                <div class="combo-gold">⭐ COMBO PREMIUM - 450$</div>
+                <br><div class="btn-select">Sélectionner</div>
+            </div>
+        </a>
+        <a href="choix-suv.html" class="service-card">
+            <div class="service-box">
+                <h3>SUV / CROSSOVER</h3>
+                <p class="price">Lavage + Détail Intérieur - 250$</p>
+                <p class="price">Teintage de vitres - 300$</p>
+                <div class="combo-gold">⭐ COMBO PREMIUM - 550$</div>
+                <br><div class="btn-select">Sélectionner</div>
+            </div>
+        </a>
+        <a href="choix-truck.html" class="service-card">
+            <div class="service-box">
+                <h3>TRUCK / VAN</h3>
+                <p class="price">Lavage + Détail Intérieur - 300$</p>
+                <p class="price">Teintage de vitres - 400$</p>
+                <div class="combo-gold">⭐ COMBO PREMIUM - 700$</div>
+                <br><div class="btn-select">Sélectionner</div>
+            </div>
+        </a>
     </div>
 
-    <section class="hero">
-        <h1>GlowShine Car</h1>
-        
-        <div class="approche-box">
-            <h2>✨ Notre Approche</h2>
-            <p><strong>Glow&Shine | L’éclat du succès</strong> 🚀</p>
-            <p>Chez GlowShine Car, on ne se contente pas de laver des voitures, on redonne de la puissance à votre image. Pour nous, chaque véhicule qui sort de nos mains est une preuve de notre rigueur et de notre passion.</p>
-        </div>
-    </section>
-
-    <h3 class="selection-title">Sélectionnez votre véhicule</h3>
-
-    <div class="services-container">
-        <div class="card">
-            <h3>Sedan</h3>
-            <p>Lavage + Détail - 200$</p>
-            <p>Vitres Teintées - 250$</p>
-            <span class="premium">⭐ Combo Premium - 450$</span>
-            <button class="option-btn">Voir les options</button>
-        </div>
-
-        <div class="card">
-            <h3>SUV / Crossover</h3>
-            <p>Lavage + Détail - 250$</p>
-            <p>Vitres Teintées - 300$</p>
-            <span class="premium">⭐ Combo Premium - 550$</span>
-            <button class="option-btn">Voir les options</button>
-        </div>
-
-        <div class="card">
-            <h3>Truck / Van</h3>
-            <p>Lavage + Détail - 300$</p>
-            <p>Vitres Teintées - 400$</p>
-            <span class="premium">⭐ Combo Premium - 700$</span>
-            <button class="option-btn">Voir les options</button>
-        </div>
+    <div class="discount-section">
+        <h3>🎁 OFFRES EXCLUSIVES</h3>
+        <p>Inscrivez votre courriel pour recevoir des <b>codes promo Black & Yellow</b> !</p>
+        <form action="#" class="discount-form">
+            <input type="email" placeholder="Votre adresse courriel" required>
+            <button type="submit" class="btn-submit">S'inscrire</button>
+        </form>
     </div>
 
-    <div class="privilege-zone">
-        <h4>🎁 Zone Privilège</h4>
-        <p style="font-size: 0.85rem; color: #aaa;">Inscris-toi pour recevoir des codes rabais exclusifs !</p>
-        <div class="email-box">
-            <input type="email" placeholder="Ton adresse courriel">
-            <button class="sub-btn">S'INSCRIRE</button>
-        </div>
+    <div class="approach">
+        <h3>Notre Approche</h3>
+        <p>
+            ✨ Glow&Shine | L'éclat du succès 🚀 <br>
+            Votre vie brille, votre voiture aussi. 🧼 <br>
+            Expertise, Précision & Brillance extrême. <br>
+            📩 Contactez nous pour un résultat
+        </p>
     </div>
+</section>
 
-    <a href="https://wa.me/ton-numero" class="contact-float">💬 NOUS CONTACTER</a>
+<a href="contact.html" class="floating-contact">💬 CONTACTER UN EXPERT</a>
 
-    <script>
-        function verifierCode() {
-            var code = prompt("Accès restreint - Code Staff :");
-            if (code === "2026") {
-                window.location.href = "login.html";
-            } else if (code !== null) {
-                alert("Code incorrect");
-            }
+<script>
+    function toggleMenu() { document.getElementById("sideMenu").classList.toggle("active"); }
+
+    var audio = document.getElementById("bgMusic");
+    function toggleMusic() {
+        if (audio.paused) {
+            audio.play().then(() => {
+                audio.volume = 0.4;
+                document.getElementById("musicText").innerText = "MUSIQUE : ON";
+                document.getElementById("musicIcon").innerText = "🔊";
+            }).catch(e => console.log("Interaction requise"));
+        } else {
+            audio.pause();
+            document.getElementById("musicText").innerText = "MUSIQUE : OFF";
+            document.getElementById("musicIcon").innerText = "🔇";
         }
-    </script>
+    }
+
+    document.addEventListener('click', function() {
+        if (audio.paused) { toggleMusic(); }
+    }, { once: true });
+</script>
 
 </body>
 </html>
