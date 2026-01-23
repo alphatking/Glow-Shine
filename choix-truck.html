@@ -15,28 +15,30 @@
         .depot-text { font-size: 0.9rem; color: #aaa; }
         .btn-back { display: inline-block; margin-top: 20px; color: #888; text-decoration: none; }
         #payment-modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #222; padding: 30px; border-radius: 20px; border: 2px solid #ffd700; width: 90%; max-width: 400px; box-shadow: 0 0 50px rgba(0,0,0,0.8); z-index: 100; }
+        .floating-contact { position: fixed; bottom: 20px; right: 20px; background: #ffd700; color: black; padding: 15px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 15px rgba(255,215,0,0.3); z-index: 99; }
     </style>
 </head>
 <body>
 <div class="container">
     <a href="index.html" class="btn-back">← Retour</a>
     <h1>Options pour Truck / Van</h1>
-    <div class="option-card" onclick="showPayment('Truck - Lavage + Détail', '300$', '75$')">
+    <div class="option-card" onclick="showPayment('Truck - Lavage + Détail', '300$', '90$')">
         <h3>Lavage + Détail</h3>
         <p class="price">300$</p>
-        <p class="depot-text">Dépôt requis : 75$</p>
+        <p class="depot-text">Dépôt requis (30%) : 90$</p>
     </div>
-    <div class="option-card" onclick="showPayment('Truck - Vitres Teintées', '400$', '100$')">
+    <div class="option-card" onclick="showPayment('Truck - Vitres Teintées', '400$', '120$')">
         <h3>Vitres Teintées</h3>
         <p class="price">400$</p>
-        <p class="depot-text">Dépôt requis : 100$</p>
+        <p class="depot-text">Dépôt requis (30%) : 120$</p>
     </div>
-    <div class="option-card" onclick="showPayment('Truck - Combo Premium', '700$', '175$')">
+    <div class="option-card" onclick="showPayment('Truck - Combo Premium', '700$', '210$')">
         <h3>Combo Premium</h3>
         <p class="price">700$</p>
-        <p class="depot-text">Dépôt requis : 175$</p>
+        <p class="depot-text">Dépôt requis (30%) : 210$</p>
     </div>
 </div>
+
 <div id="payment-modal">
     <h2 id="modal-title" style="color:#ffd700"></h2>
     <p>Prix total : <span id="modal-total"></span></p>
@@ -50,6 +52,9 @@
     </div>
     <button onclick="closeModal()" style="margin-top:20px; background:none; border:1px solid #888; color:white; padding:10px; cursor:pointer; border-radius:5px;">Fermer</button>
 </div>
+
+<a href="contact.html" class="floating-contact">💬 Nous contacter</a>
+
 <script>
     function showPayment(title, total, depot) {
         document.getElementById('modal-title').innerText = title;
