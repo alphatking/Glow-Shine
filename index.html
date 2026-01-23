@@ -26,6 +26,22 @@
             border: 1px solid #ffd700; color:#ffd700; border-radius:5px; font-weight:bold; 
         }
         .depot-notice { text-align:center; margin-top:40px; color:#ffd700; font-style:italic; }
+
+        /* Bouton Contact Flottant */
+        .floating-contact { 
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            background: #ffd700; 
+            color: black; 
+            padding: 15px 20px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3); 
+            z-index: 99; 
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -72,8 +88,10 @@
 
     </div>
 
-    <p class="depot-notice">⚠️ Un dépôt de 25% est requis pour confirmer chaque rendez-vous.</p>
+    <p class="depot-notice">⚠️ Un dépôt de 30% est requis pour confirmer chaque rendez-vous.</p>
 </section>
+
+<a href="contact.html" class="floating-contact">💬 Nous contacter</a>
 
 </body>
 </html>
