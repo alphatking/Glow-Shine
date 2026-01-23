@@ -82,16 +82,31 @@
     padding: 60px 20px;
   }
 
-  h2 { color: #ffd700; }
+  h2 { color: #ffd700; margin-bottom: 20px; }
 
-  .box {
+  .cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
     background: #1a1a1a;
-    padding: 30px;
+    padding: 25px;
     border-radius: 12px;
-    margin-bottom: 30px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    color: #ccc;
+    width: 300px;
     line-height: 1.6;
+    color: #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card h3 {
+    color: #ffd700;
+    margin-bottom: 15px;
   }
 
   .price {
@@ -108,6 +123,14 @@
     text-decoration: none;
     border-radius: 30px;
     font-weight: bold;
+    text-align: center;
+  }
+
+  .depot {
+    margin-top: 30px;
+    color: #ffd700;
+    font-weight: bold;
+    text-align: center;
   }
 
   footer {
@@ -115,6 +138,12 @@
     padding: 25px;
     background: #000;
     color: #777;
+  }
+
+  /* RESPONSIVE */
+  @media(max-width: 950px) {
+    .cards { flex-direction: column; align-items: center; }
+    .card { width: 80%; }
   }
 </style>
 </head>
@@ -134,30 +163,41 @@
 </header>
 
 <section>
-  <div class="box">
-    <h2>Nos services & prix</h2>
-    <p><strong>Sedan</strong><br>
-      Lavage + Détail : <span class="price">200$</span><br>
-      Vitres teintées : <span class="price">250$</span><br>
-      Combo Premium : <span class="price">450$</span>
-    </p>
-    <p><strong>SUV / Crossover</strong><br>
-      Lavage + Détail : <span class="price">250$</span><br>
-      Vitres teintées : <span class="price">300$</span><br>
-      Combo Premium : <span class="price">550$</span>
-    </p>
-    <p><strong>Truck / Van</strong><br>
-      Lavage + Détail : <span class="price">300$</span><br>
-      Vitres teintées : <span class="price">400$</span><br>
-      Combo Premium : <span class="price">700$</span>
-    </p>
-    <a class="btn" href="contact.html">Prendre rendez-vous</a>
+
+  <h2>Nos services</h2>
+  <div class="cards">
+
+    <!-- SEDAN -->
+    <div class="card">
+      <h3>Sedan</h3>
+      <p>Lavage + Détail : <span class="price">200$</span></p>
+      <p>Vitres teintées : <span class="price">250$</span></p>
+      <p>Combo Premium : <span class="price">450$</span></p>
+      <a class="btn" href="contact.html">Prendre rendez-vous</a>
+    </div>
+
+    <!-- SUV / CROSSOVER -->
+    <div class="card">
+      <h3>SUV / Crossover</h3>
+      <p>Lavage + Détail : <span class="price">250$</span></p>
+      <p>Vitres teintées : <span class="price">300$</span></p>
+      <p>Combo Premium : <span class="price">550$</span></p>
+      <a class="btn" href="contact.html">Prendre rendez-vous</a>
+    </div>
+
+    <!-- TRUCK / VAN -->
+    <div class="card">
+      <h3>Truck / Van</h3>
+      <p>Lavage + Détail : <span class="price">300$</span></p>
+      <p>Vitres teintées : <span class="price">400$</span></p>
+      <p>Combo Premium : <span class="price">700$</span></p>
+      <a class="btn" href="contact.html">Prendre rendez-vous</a>
+    </div>
+
   </div>
 
-  <div class="box">
-    <h2>Dépôt obligatoire</h2>
-    <p>Un <strong>dépôt de 25%</strong> est requis pour confirmer tout rendez-vous.</p>
-  </div>
+  <p class="depot">⚠️ Dépôt obligatoire de 25% pour confirmer le rendez-vous.</p>
+
 </section>
 
 <footer>© 2026 GlowShine Car</footer>
@@ -278,13 +318,13 @@
     </p>
   </div>
 
-  <!-- FORMULAIRE DE RENDEZ-VOUS -->
+  <!-- FORMULAIRE DE RENDEZ-VOUS AVEC FORMSPREE -->
   <div class="box">
     <h2>Prendre rendez-vous</h2>
-    <form>
-      <input type="text" placeholder="Nom complet" required>
-      <input type="tel" placeholder="Numéro de téléphone" required>
-      <textarea placeholder="Message ou service désiré"></textarea>
+    <form action="https://formspree.io/f/TON_CODE" method="POST">
+      <input type="text" name="name" placeholder="Nom complet" required>
+      <input type="tel" name="phone" placeholder="Numéro de téléphone" required>
+      <textarea name="message" placeholder="Message ou service désiré"></textarea>
       <button type="submit">Envoyer</button>
 
       <!-- DÉPÔT OBLIGATOIRE -->
