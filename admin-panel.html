@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowShine | Administration</title>
+    <style>
+        body { margin:0; font-family: 'Segoe UI', sans-serif; background:#0e0e0e; color:#f5f5f5; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        
+        header { width: 100%; max-width: 600px; text-align: center; padding: 30px 0; border-bottom: 2px solid #ffd700; margin-bottom: 30px; }
+        header h1 { color: #ffd700; text-transform: uppercase; letter-spacing: 2px; margin: 0; font-size: 1.5rem; }
+
+        .admin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; width: 100%; max-width: 600px; }
+        
+        .admin-card { 
+            background: #1a1a1a; padding: 20px; border-radius: 12px; border: 1px solid #333; 
+            text-align: center; text-decoration: none; color: white; transition: 0.3s;
+        }
+        .admin-card:hover { border-color: #ffd700; transform: translateY(-3px); }
+        .admin-card i { font-size: 1.5rem; display: block; margin-bottom: 10px; }
+        .admin-card h3 { margin: 0; font-size: 0.9rem; text-transform: uppercase; color: #ffd700; }
+
+        .full-width { grid-column: span 2; }
+
+        .back-btn { margin-top: 40px; color: #777; text-decoration: none; font-size: 0.85rem; border: 1px solid #333; padding: 10px 20px; border-radius: 5px; }
+        .back-btn:hover { color: #ffd700; border-color: #ffd700; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CENTRE DE CONTRÔLE BOSS</h1>
+    </header>
+
+    <div class="admin-grid">
+        <div class="admin-card">
+            <i>📊</i>
+            <h3>Statistiques</h3>
+        </div>
+        
+        <div class="admin-card">
+            <i>💰</i>
+            <h3>Revenus</h3>
+        </div>
+
+        <div class="admin-card full-width">
+            <i>👥</i>
+            <h3>Base de données Clients</h3>
+        </div>
+
+        <div class="admin-card">
+            <i>🧼</i>
+            <h3>Inventaire Produits</h3>
+        </div>
+
+        <div class="admin-card">
+            <i>📅</i>
+            <h3>Calendrier Maître</h3>
+        </div>
+    </div>
+
+    <a href="gestion.html" class="back-btn">← RETOUR GESTION</a>
+
+</body>
+</html>
