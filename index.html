@@ -5,71 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlowShine Car | Accueil</title>
     <style>
-        body { margin: 0; font-family: Arial, sans-serif; background: #0e0e0e; color: white; text-align: center; }
-        nav { display: flex; justify-content: space-between; padding: 20px; background: #1a1a1a; border-bottom: 2px solid #ffd700; }
-        .logo { font-weight: bold; color: #ffd700; font-size: 1.2rem; }
-        .nav-links a { color: white; text-decoration: none; margin-left: 15px; font-size: 0.9rem; }
+        :root { --gold: #ffd700; --dark-bg: #0a0a0a; --card-bg: #141414; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--dark-bg); color: white; text-align: center; }
         
-        .hero { padding: 50px 20px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=2000'); background-size: cover; }
-        h1 { font-size: 2.5rem; margin: 0; }
-        .slogan { color: #ffd700; font-style: italic; }
+        /* Header */
+        .top-bar { display: flex; justify-content: space-between; padding: 15px; align-items: center; }
+        .music-btn { background: var(--gold); color: black; border: none; padding: 5px 12px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; cursor: pointer; }
+        .menu-icon { color: var(--gold); font-size: 1.8rem; cursor: pointer; border: 2px solid var(--gold); padding: 5px 10px; border-radius: 5px; }
 
-        .approche { padding: 40px 20px; background: #111; border-top: 1px solid #333; }
-        .approche h2 { color: #ffd700; }
+        /* Hero & Approche */
+        .hero { padding: 30px 20px; }
+        .hero h1 { font-size: 2.8rem; color: var(--gold); margin: 0; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .approche-box { 
+            max-width: 700px; margin: 20px auto; padding: 20px; 
+            border-top: 1px solid #333; border-bottom: 1px solid #333;
+            background: rgba(255, 215, 0, 0.02);
+        }
+        .approche-box h2 { color: var(--gold); font-size: 1.2rem; margin-bottom: 10px; }
+        .approche-box p { font-size: 0.95rem; line-height: 1.5; color: #ddd; }
 
-        .services { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 40px 10px; }
-        .card { background: #1a1a1a; border: 1px solid #ffd700; border-radius: 10px; width: 280px; padding: 20px; }
-        .price { font-size: 1.8rem; font-weight: bold; color: #ffd700; margin: 10px 0; }
+        /* Services */
+        .selection-title { color: var(--gold); margin: 40px 0 20px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        .services-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 0 10px; }
+        
+        .card { 
+            background: var(--card-bg); border-radius: 15px; width: 300px; padding: 30px 20px; 
+            border: 1px solid #222; transition: 0.3s;
+        }
+        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .card h3 { font-size: 1.3rem; margin-bottom: 20px; color: #fff; }
+        .card p { font-size: 0.9rem; margin: 8px 0; color: #bbb; }
+        .premium { color: var(--gold); font-weight: bold; margin: 15px 0; display: block; font-size: 1rem; }
+        
+        .option-btn { 
+            background: none; border: 1px solid var(--gold); color: var(--gold); 
+            padding: 12px 30px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 15px;
+            transition: 0.3s;
+        }
+        .option-btn:hover { background: var(--gold); color: black; }
 
-        .btn-staff { color: #ffd700 !important; border: 1px solid #ffd700; padding: 5px 10px; border-radius: 5px; }
+        /* Zone Privilège */
+        .privilege-zone { 
+            margin: 60px auto; width: 85%; max-width: 500px;
+            border: 2px dashed var(--gold); padding: 25px; border-radius: 15px;
+        }
+        .email-box { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; align-items: center; }
+        input { background: #000; border: 1px solid #333; color: white; padding: 12px; border-radius: 5px; width: 90%; text-align: center; }
+        .sub-btn { background: var(--gold); color: black; border: none; padding: 12px; border-radius: 5px; font-weight: bold; width: 90%; cursor: pointer; }
+
+        .contact-float { 
+            position: fixed; bottom: 20px; right: 20px; background: var(--gold); color: black; 
+            padding: 15px 25px; border-radius: 30px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">GLOWSHINE CAR</div>
-        <div class="nav-links">
-            <a href="#services">Services</a>
-            <a href="#" onclick="verifierCode()" class="btn-staff">🛠️ Accès Staff</a>
-        </div>
-    </nav>
+    <div class="top-bar">
+        <button class="music-btn">🔊 MUSIQUE : ON</button>
+        <div class="menu-icon" onclick="verifierCode()">≡</div>
+    </div>
 
     <section class="hero">
-        <h1>GLOWSHINE CAR</h1>
-        <p class="slogan">L'éclat du succès à votre porte</p>
+        <h1>GlowShine Car</h1>
+        
+        <div class="approche-box">
+            <h2>✨ Notre Approche</h2>
+            <p><strong>Glow&Shine | L’éclat du succès</strong> 🚀</p>
+            <p>Chez GlowShine Car, on ne se contente pas de laver des voitures, on redonne de la puissance à votre image. Pour nous, chaque véhicule qui sort de nos mains est une preuve de notre rigueur et de notre passion.</p>
+        </div>
     </section>
 
-    <section class="approche">
-        <h2>Notre Approche</h2>
-        <p>✨ <strong>Glow&Shine | L’éclat du succès</strong> 🚀</p>
-        <p>Chez GlowShine Car, on ne se contente pas de laver des voitures, on redonne de la puissance à votre image. Chaque véhicule est une preuve de notre rigueur.</p>
-    </section>
+    <h3 class="selection-title">Sélectionnez votre véhicule</h3>
 
-    <section id="services" class="services">
+    <div class="services-container">
         <div class="card">
-            <h3>SEDAN</h3>
-            <div class="price">100$</div>
-            <p>Intérieur & Extérieur</p>
+            <h3>Sedan</h3>
+            <p>Lavage + Détail - 200$</p>
+            <p>Vitres Teintées - 250$</p>
+            <span class="premium">⭐ Combo Premium - 450$</span>
+            <button class="option-btn">Voir les options</button>
         </div>
+
         <div class="card">
-            <h3>SUV</h3>
-            <div class="price">130$</div>
-            <p>Intérieur & Extérieur</p>
+            <h3>SUV / Crossover</h3>
+            <p>Lavage + Détail - 250$</p>
+            <p>Vitres Teintées - 300$</p>
+            <span class="premium">⭐ Combo Premium - 550$</span>
+            <button class="option-btn">Voir les options</button>
         </div>
+
         <div class="card">
-            <h3>TRUCK</h3>
-            <div class="price">160$</div>
-            <p>Intérieur & Extérieur</p>
+            <h3>Truck / Van</h3>
+            <p>Lavage + Détail - 300$</p>
+            <p>Vitres Teintées - 400$</p>
+            <span class="premium">⭐ Combo Premium - 700$</span>
+            <button class="option-btn">Voir les options</button>
         </div>
-    </section>
+    </div>
+
+    <div class="privilege-zone">
+        <h4>🎁 Zone Privilège</h4>
+        <p style="font-size: 0.85rem; color: #aaa;">Inscris-toi pour recevoir des codes rabais exclusifs !</p>
+        <div class="email-box">
+            <input type="email" placeholder="Ton adresse courriel">
+            <button class="sub-btn">S'INSCRIRE</button>
+        </div>
+    </div>
+
+    <a href="https://wa.me/ton-numero" class="contact-float">💬 NOUS CONTACTER</a>
 
     <script>
         function verifierCode() {
-            var code = prompt("Entrez le code d'accès Staff :");
+            var code = prompt("Accès restreint - Code Staff :");
             if (code === "2026") {
                 window.location.href = "login.html";
-            } else {
-                alert("Code incorrect !");
+            } else if (code !== null) {
+                alert("Code incorrect");
             }
         }
     </script>
