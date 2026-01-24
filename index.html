@@ -117,7 +117,12 @@
             <div class="service-box"><h3>TRUCK / VAN</h3><p class="price">Lavage: 300$ | Vitres: 400$</p><div class="combo-gold">⭐ COMBO : 650$</div><br><div class="btn-select">Sélectionner</div></div>
         </a>
         <a href="choix-sport-luxe.html" class="service-card">
-            <div class="service-box"><h3>SPORT / LUXE</h3><p class="price">Lavage: 300$ | Vitres: 350$</p><div class="combo-gold">⭐ COMBO : 700$</div><br><div class="btn-select">Sélectionner</div></div>
+            <div class="service-box">
+                <h3>SPORT / LUXE</h3>
+                <p class="price">Lavage: 300$ | Vitres: 450$</p>
+                <div class="combo-gold">⭐ COMBO : 700$</div>
+                <br><div class="btn-select">Sélectionner</div>
+            </div>
         </a>
     </div>
 
@@ -172,7 +177,6 @@
     function activateDiscount() {
         const email = document.getElementById('email-promo').value;
         if(email.includes('@')) {
-            // Petit délai pour laisser le formulaire s'envoyer avant de cacher l'interface
             setTimeout(function() {
                 document.getElementById('discount-content').style.display = 'none';
                 document.getElementById('coupon-result').style.display = 'block';
